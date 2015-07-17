@@ -39,13 +39,6 @@ plugins=(git brew gem history-substring-search vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
-# Customize to your needs...
-export PATH=/Users/anton/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/sbin:/Users/anton/.rvm/bin:/Users/anton/.cask/bin
-PATH=$PATH:/usr/local/OmniSharp
-#PATH=/usr/local/bin:$PATH
-#PATH=$PATH:/usr/local/sbin
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
