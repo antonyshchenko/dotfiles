@@ -1,0 +1,3 @@
+[submodule "env0der/extensions/evil-plugins"]
+	path = env0der/extensions/evil-plugins
+	url = git@github.com:tarao/evil-plugins.git
