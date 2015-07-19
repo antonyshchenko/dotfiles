@@ -24,7 +24,8 @@
     nlinum
     ag
     browse-at-remote
-    osx-clipboard))
+    osx-clipboard
+    avy))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -429,3 +430,11 @@
     (progn
       (osx-clipboard-mode +1)
       (diminish 'osx-clipboard-mode))))
+
+(defun env0der/init-avy ()
+  (use-package avy
+    :config
+    (progn
+      (setq avy-background t)
+      (setq avy-keys (number-sequence ?a ?z))
+      (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-or-subword-1))))
