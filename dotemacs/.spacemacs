@@ -169,6 +169,11 @@ layers configuration."
   ;; (define-key evil-insert-state-map (kbd "<tab>") 'evil-normal-state)
   (evil-leader/set-key "pR" 'ctags-update)
 
+  ;; show magit status after finishing commit
+  (define-key git-commit-mode-map (kbd "C-c C-c") (lambda(force)
+                                                    (interactive "P")
+                                                    (with-editor-finish force)
+                                                    (magit-status)))
   ;; customize theme
   (set-face-attribute 'spacemacs-emacs-face nil :box nil)
   (set-face-attribute 'spacemacs-evilified-face nil :box nil)
