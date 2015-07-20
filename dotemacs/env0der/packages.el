@@ -26,7 +26,8 @@
     browse-at-remote
     osx-clipboard
     avy
-    scratch))
+    scratch
+    rspec-mode))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -442,3 +443,16 @@
 
 (defun env0der/init-scratch ()
   (use-package scratch))
+
+(defun env0der/init-rspec-mode ()
+  (use-package rspec-mode
+    :config
+    (progn
+      (add-hook 'after-init-hook 'inf-ruby-switch-setup)
+
+      (defadvice rspec-compile (around rspec-compile-around)
+        "Use BASH shell for running the specs because of ZSH issues."
+        (let ((shell-file-name "/bin/bash"))
+          ad-do-it))
+
+      (ad-activate 'rspec-compile))))
