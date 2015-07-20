@@ -25,7 +25,8 @@
     ag
     browse-at-remote
     osx-clipboard
-    avy))
+    avy
+    scratch))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -438,3 +439,6 @@
       (setq avy-background t)
       (setq avy-keys (number-sequence ?a ?z))
       (define-key evil-normal-state-map (kbd "SPC") 'avy-goto-word-or-subword-1))))
+
+(defun env0der/init-scratch ()
+  (use-package scratch))
