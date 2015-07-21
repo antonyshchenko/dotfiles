@@ -169,11 +169,27 @@ layers configuration."
   ;; (define-key evil-insert-state-map (kbd "<tab>") 'evil-normal-state)
   (evil-leader/set-key "pR" 'ctags-update)
 
-  ;; show magit status after finishing commit
-  (define-key git-commit-mode-map (kbd "C-c C-c") (lambda(force)
-                                                    (interactive "P")
-                                                    (with-editor-finish force)
-                                                    (magit-status)))
+  (use-package git-commit
+    :config
+    (progn
+      ;; show magit status after finishing commit
+      (define-key git-commit-mode-map (kbd "C-c C-c") (lambda(force)
+                                                        (interactive "P")
+                                                        (with-editor-finish force)
+                                                        (magit-status)))))
+
+  (evil-leader/set-key "tt" 'rspec-toggle-spec-and-target)
+  (evil-leader/set-key "te" 'rspec-toggle-spec-and-target-find-example)
+  (evil-leader/set-key "ta" 'rspec-verify-all)
+  (evil-leader/set-key "tv" 'rspec-verify)
+  (evil-leader/set-key "ts" 'rspec-verify-single)
+  (evil-leader/set-key "tm" 'rspec-verify-matching)
+  (evil-leader/set-key "tr" 'rspec-rerun)
+  (evil-leader/set-key "tf" 'rspec-run-last-failed)
+  (evil-leader/set-key "tp" 'rspec-toggle-example-pendingness)
+  (evil-leader/set-key-for-mode 'dired-mode "tv" 'rspec-dired-verify)
+  (evil-leader/set-key-for-mode 'dired-mode "ts" 'rspec-dired-verify-single)
+
   ;; customize theme
   (set-face-attribute 'spacemacs-emacs-face nil :box nil)
   (set-face-attribute 'spacemacs-evilified-face nil :box nil)

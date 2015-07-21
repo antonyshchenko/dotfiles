@@ -27,6 +27,7 @@
     osx-clipboard
     avy
     scratch
+    inf-ruby
     rspec-mode))
 
 (defvar env0der-excluded-packages '()
@@ -443,6 +444,9 @@
 
 (defun env0der/init-scratch ()
   (use-package scratch))
+
+(defun env0der/init-inf-ruby ()
+  (use-package inf-ruby))
 
 (defun env0der/init-rspec-mode ()
   (use-package rspec-mode
