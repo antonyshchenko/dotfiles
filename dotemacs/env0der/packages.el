@@ -28,7 +28,8 @@
     avy
     scratch
     inf-ruby
-    rspec-mode))
+    rspec-mode
+    robe))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -460,3 +461,17 @@
           ad-do-it))
 
       (ad-activate 'rspec-compile))))
+
+(defun env0der/init-robe ()
+  (use-package robe
+    :config
+    (progn
+      (add-hook 'ruby-mode-hook 'robe-mode)
+      (define-key robe-mode-map (kbd "C-]") 'robe-jump)
+
+      (defun reload-ruby-file-if-robe-running ()
+        (when robe-running
+          (ruby-load-file)))
+
+      (add-hook 'robe-mode-hook (lambda ()
+                                  (add-hook 'after-save-hook 'reload-ruby-file-if-robe-running nil 'make-it-local))))))
