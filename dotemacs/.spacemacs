@@ -152,10 +152,10 @@ layers configuration."
       (setq helm-echo-input-in-header-line nil) ;; disable temporarely because of glitches in terminal
       ))
 
-  (add-hook 'ido-setup-hook (lambda ()
-                              (define-key ido-completion-map (kbd "M-j") 'ido-next-match)
-                              (define-key ido-completion-map (kbd "M-k") 'ido-prev-match)
-                              (define-key ido-completion-map (kbd "C-j") 'ido-exit-minibuffer)))
+  (add-hook 'ido-minibuffer-setup-hook (lambda ()
+                                         (define-key ido-completion-map (kbd "M-j") 'ido-next-match)
+                                         (define-key ido-completion-map (kbd "M-k") 'ido-prev-match)
+                                         (define-key ido-completion-map (kbd "C-j") 'ido-complete)))
 
   (global-set-key (kbd "s-/") 'spacemacs/helm-projectile-smart-do-search)
   (define-key isearch-mode-map (kbd "C-j") 'isearch-exit)
