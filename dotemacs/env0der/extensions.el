@@ -7,12 +7,15 @@
 (defvar env0der-post-extensions
   '(
     evil-plugins
+    hyper-jump
     ;; helm-etags+
     )
   "List of all extensions to load after the packages.")
 
-(defun env0der/init-evil-plugins ()
-  )
+(defun env0der/init-evil-plugins ())
+
+(defun env0der/init-hyper-jump ()
+  (require 'hyper-jump))
 
 ;; (defun env0der/init-helm-etags+ ()
 ;;   (require 'helm-etags+)

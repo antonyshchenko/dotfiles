@@ -19,7 +19,6 @@
     bm
     helm-bm
     web-mode
-    helm
     ctags-update
     nlinum
     ag
@@ -373,37 +372,6 @@
     (progn
       (global-evil-matchit-mode))))
 
-(defun env0der/init-helm ()
-  (use-package helm
-    :config
-    (progn
-      (defun env0der/jump-to-definiton-thing-at-point ()
-        (interactive)
-        (let ((thing (thing-at-point 'symbol 1)))
-          (when (and (equal 'ruby-mode major-mode) (equal ":" (substring thing 0 1)))
-            ;; in ruby mode try to find appropriate method for ruby symbol at point
-            (setq thing (substring thing 1)))
-          thing))
-
-      (defun env0der/jump-to-definition-via-tags (arg)
-        (interactive "P")
-        (let ((thing (env0der/jump-to-definiton-thing-at-point)))
-          (when (derived-mode-p 'ruby-mode 'cperl-mode)
-            ;; quick fix for searching full qualified class/module names in ruby and perl
-            (setq thing (first (reverse (split-string thing "::")))))
-          (helm-etags+-select-internal (concat "\\_<" thing "\\_>"))))
-
-      ;; (define-key evil-normal-state-map (kbd "C-]") 'env0der/jump-to-definition-via-tags)
-      (define-key evil-normal-state-map (kbd "C-]") 'helm-etags-select)
-
-      (defun env0der/hyper-jump ()
-        (interactive)
-        (evil-ace-jump-word-mode)
-        (message (thing-at-point 'symbol))
-        (helm-etags-select nil))
-
-      (define-key evil-normal-state-map (kbd "C-SPC") 'env0der/hyper-jump))))
-
 (defun env0der/init-ctags-update ()
   (use-package ctags-update
     :config
@@ -467,7 +435,6 @@
     :config
     (progn
       (add-hook 'ruby-mode-hook 'robe-mode)
-      (define-key robe-mode-map (kbd "C-]") 'robe-jump)
 
       (defun reload-ruby-file-if-robe-running ()
         (when robe-running
