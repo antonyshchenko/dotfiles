@@ -471,7 +471,7 @@
 
       (defun reload-ruby-file-if-robe-running ()
         (when robe-running
-          (ruby-load-file)))
+          (ruby-load-file (buffer-file-name))))
 
       (add-hook 'robe-mode-hook (lambda ()
                                   (add-hook 'after-save-hook 'reload-ruby-file-if-robe-running nil 'make-it-local))))))
