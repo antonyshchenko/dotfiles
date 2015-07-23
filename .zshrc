@@ -1,12 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="gentoo"
+ZSH_THEME="lambda2"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -35,7 +29,7 @@ DISABLE_CORRECTION="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew gem history-substring-search)
+plugins=(git brew git history-substring-search jira osx redis-cli web-search wd)
 
 source $ZSH/oh-my-zsh.sh
 
