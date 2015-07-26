@@ -9,8 +9,6 @@
     cider
     tabbar
     tabbar-ruler
-    smartparens
-    web-mode
     company
     ruby-mode
     cperl-mode
@@ -228,26 +226,6 @@
                                  (tabbar-install-faces)
                                  (set-face-attribute 'tabbar-default nil :background "#666666")))))
 
-(defun env0der/init-smartparens ()
-  (use-package smartparens
-    :init
-    (sp-local-pair 'web-mode "%" "%"
-                   :unless '(sp-in-string-or-word-p)
-                   :post-handlers '(
-                                    (space-and-space-on-each-side "SPC")
-                                    (space-on-each-side "=" "#")
-                                    ))
-
-    (defun sp-web-mode-is-code-context (id action context)
-      (when (and (eq action 'insert)
-                 (not (or (get-text-property (point) 'part-side)
-                          (get-text-property (point) 'block-side))))
-
-        t))
-
-    (sp-local-pair 'web-mode "<" nil :when '(sp-web-mode-is-code-context))
-    ))
-
 (defun env0der/init-web-mode ()
   (use-package web-mode
     :config
@@ -259,7 +237,7 @@
       (setq web-mode-code-indent-offset 2)
       (setq web-mode-css-indent-offset 2)
       (setq web-mode-indent-style 2)
-      (setq web-mode-enable-auto-pairing nil))))
+      (sp-local-pair 'web-mode "<%= "  " %>"))))
 
 (defun env0der/init-company ()
   (use-package company
