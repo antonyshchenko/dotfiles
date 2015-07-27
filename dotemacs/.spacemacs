@@ -133,7 +133,7 @@ layers configuration."
     :config
     (progn
       (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-      (define-key key-translation-map "\033[14;2~" (kbd "s-f"))
+      (define-key key-translation-map [f10] (kbd "s-f"))
       (global-set-key (kbd "s-f") 'helm-imenu)
       (define-key helm-map (kbd "C-z")  'helm-select-action)
       (define-key helm-map (kbd "C-w") 'backward-kill-word)

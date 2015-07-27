@@ -35,14 +35,14 @@
   (use-package ace-jump-buffer
     :config
     (progn
-      (define-key key-translation-map "\033[12;2~" (kbd "s-b"))
+      (define-key key-translation-map [f9] (kbd "s-b"))
       (global-set-key (kbd "s-b") 'ace-jump-buffer))))
 
 (defun env0der/init-helm-projectile ()
   (use-package helm-projectile
     :config
     (progn
-      (define-key key-translation-map "\033[13;2~" (kbd "s-o"))
+      (define-key key-translation-map [f11] (kbd "s-o"))
       (global-set-key (kbd "s-o") 'helm-projectile-find-file))))
 
 (defun env0der/init-evil ()
@@ -110,7 +110,7 @@
                                                       (interactive)
                                                       (evil-insert-newline-below)))
 
-      (define-key key-translation-map "\033[11;2~" (kbd "<S-return>"))
+      (define-key key-translation-map [f12] (kbd "<S-return>"))
       (define-key evil-normal-state-map [(S-return)] (lambda ()
                                                        (interactive)
                                                        (evil-insert-newline-above))))))
