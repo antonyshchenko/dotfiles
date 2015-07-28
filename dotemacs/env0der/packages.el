@@ -26,7 +26,8 @@
     scratch
     inf-ruby
     rspec-mode
-    robe))
+    robe
+    git-commit))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -419,3 +420,9 @@
 
       (add-hook 'robe-mode-hook (lambda ()
                                   (add-hook 'after-save-hook 'reload-ruby-file-if-robe-running nil 'make-it-local))))))
+
+(defun env0der/init-git-commit ()
+  (use-package git-commit
+    :config
+    (progn
+      (setq git-commit-finish-query-functions '()))))
