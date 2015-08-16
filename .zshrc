@@ -42,9 +42,17 @@ export LEIN_FAST_TRAMPOLINE
 
 export LEIN_JVM_OPTS=
 
-export ITERM_24BIT=1
-
 bindkey '^r' history-incremental-search-backward
+
+e () {
+    if [[ $1 == *":"* ]]; then
+        file=$(awk '{sub(/:[0-9]*$/,"")}1' <<< "$1")
+        line=$(awk '{sub(/^.*:/,"")}1' <<< "$1")
+        emacsclient --no-wait +$line $file 
+    else
+        emacsclient --no-wait $1
+    fi
+}
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local

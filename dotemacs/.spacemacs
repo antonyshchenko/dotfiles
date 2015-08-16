@@ -120,6 +120,7 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
+  (server-start)
   (global-hl-line-mode -1)
   (blink-cursor-mode t)
   (setq powerline-default-separator nil)

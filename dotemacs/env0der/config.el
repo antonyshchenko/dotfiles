@@ -12,3 +12,4 @@
 (add-hook 'prog-mode-hook 'subword-mode)
 
 (desktop-save-mode 1)
+(setq ns-pop-up-frames nil)
