@@ -51,7 +51,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Menlo"
-                               :size 15
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -84,7 +84,7 @@ before layers configuration."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup t
+   ;; dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'.
@@ -195,7 +195,7 @@ layers configuration."
   (set-face-attribute 'spacemacs-visual-face nil :box nil)
 
   (custom-set-faces
-   '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil" :family "Menlo"))))
+   '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
    '(font-lock-builtin-face ((t (:foreground "#f56e80"))))
    '(font-lock-keyword-face ((t (:foreground "#f56e80"))))
    '(font-lock-comment-face ((t (:foreground "gray43"))))
