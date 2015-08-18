@@ -33,7 +33,7 @@ plugins=(git brew git history-substring-search jira osx redis-cli web-search wd)
 
 source $ZSH/oh-my-zsh.sh
 
-export LC_ALL=en_US.UTF-8  
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 
@@ -48,11 +48,14 @@ e () {
     if [[ $1 == *":"* ]]; then
         file=$(awk '{sub(/:[0-9]*$/,"")}1' <<< "$1")
         line=$(awk '{sub(/^.*:/,"")}1' <<< "$1")
-        emacsclient --no-wait +$line $file 
+        emacsclient --no-wait +$line $file
     else
         emacsclient --no-wait $1
     fi
 }
+
+alias be='bundle exec'
+alias bi='bundle install'
 
 # Local config
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
