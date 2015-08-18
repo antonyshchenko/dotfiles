@@ -176,6 +176,8 @@ layers configuration."
   (evil-leader/set-key-for-mode 'dired-mode "tv" 'rspec-dired-verify)
   (evil-leader/set-key-for-mode 'dired-mode "ts" 'rspec-dired-verify-single)
 
+  (define-key evil-visual-state-map (kbd "TAB") 'align-regexp)
+
   ;; customize theme
   (set-face-attribute 'spacemacs-emacs-face nil :box nil)
   (set-face-attribute 'spacemacs-evilified-face nil :box nil)
