@@ -27,7 +27,8 @@
     inf-ruby
     rspec-mode
     robe
-    git-commit))
+    git-commit
+    highlight-symbol))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -188,6 +189,7 @@
     (setq tabbar-ruler-popup-scrollbar nil)
     (setq tabbar-ruler-movement-timer-delay 1000000)
     (require 'tabbar-ruler)
+
     (global-set-key (kbd "M-h") 'tabbar-ruler-backward)
     (global-set-key (kbd "s-{") 'tabbar-ruler-backward)
     (global-set-key (kbd "M-l") 'tabbar-ruler-forward)
@@ -426,3 +428,14 @@
     :config
     (progn
       (setq git-commit-finish-query-functions '()))))
+
+(defun env0der/init-highlight-symbol ()
+  (use-package highlight-symbol
+    :config
+    (progn
+      (setq highlight-symbol-idle-delay 0.2)
+      (add-hook 'prog-mode-hook (lambda ()
+                                 (highlight-symbol-mode 1)
+                                 (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
+                                 (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
+                                 (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))))))
