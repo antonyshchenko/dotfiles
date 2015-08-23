@@ -19,7 +19,8 @@
                                        (auto-completion :variables auto-completion-use-tab-instead-of-enter t)
                                        git
                                        csharp
-                                       emacs-lisp)
+                                       emacs-lisp
+                                       eyebrowse)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-escape flycheck git-gutter)
@@ -195,6 +196,8 @@ layers configuration."
   (set-face-attribute 'spacemacs-motion-face nil :box nil)
   (set-face-attribute 'spacemacs-normal-face nil :box nil)
   (set-face-attribute 'spacemacs-visual-face nil :box nil)
+
+  (turn-off-show-smartparens-mode) ;; slow for large files
 
   (custom-set-faces
    '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
