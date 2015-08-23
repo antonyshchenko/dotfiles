@@ -28,7 +28,8 @@
     rspec-mode
     robe
     git-commit
-    highlight-symbol))
+    highlight-symbol
+    eyebrowse))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -439,3 +440,9 @@
                                  (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
                                  (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
                                  (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))))))
+
+(defun env0der/init-eyebrowse ()
+  (use-package eyebrowse
+    :config
+    (progn
+      (global-set-key [C-tab] 'eyebrowse-last-window-config))))
