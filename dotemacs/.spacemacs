@@ -129,7 +129,6 @@ layers configuration."
   ;; (linum-relative-toggle)
   ;; (setq linum-relative-format "%3s ")
   (add-hook 'css-mode-hook 'rainbow-mode)
-  (show-smartparens-global-mode)
   ;; rebind some spacemacs bindings
   (use-package helm
     :config
@@ -197,7 +196,9 @@ layers configuration."
   (set-face-attribute 'spacemacs-normal-face nil :box nil)
   (set-face-attribute 'spacemacs-visual-face nil :box nil)
 
-  (turn-off-show-smartparens-mode) ;; slow for large files
+  ;; fix performance issue with showing related paren in a large buffer
+  (show-smartparens-global-mode -1) ;; slow for large files
+  (show-paren-mode) ;; this is faster
 
   (custom-set-faces
    '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
