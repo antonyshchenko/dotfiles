@@ -434,12 +434,18 @@
   (use-package highlight-symbol
     :config
     (progn
-      (setq highlight-symbol-idle-delay 0.2)
-      (add-hook 'prog-mode-hook (lambda ()
-                                 (highlight-symbol-mode 1)
-                                 (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
-                                 (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
-                                 (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))))))
+      (add-hook 'evil-normal-state-entry-hook (lambda ()
+                                                (if (derived-mode-p 'prog-mode)
+                                                    (progn
+                                                      (highlight-symbol-mode 1)
+                                                      (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
+                                                      (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
+                                                      (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))
+                                                  (highlight-symbol-mode -1))))
+      (add-hook 'evil-normal-state-exit-hook (lambda ()
+                                                (if (derived-mode-p 'prog-mode)
+                                                    (highlight-symbol-mode -1))))
+      (setq highlight-symbol-idle-delay 0.2))))
 
 (defun env0der/init-eyebrowse ()
   (use-package eyebrowse
