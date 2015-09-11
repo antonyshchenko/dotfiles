@@ -30,7 +30,8 @@
     git-commit
     highlight-symbol
     evil-cleverparens
-    evil-textobj-anyblock))
+    evil-textobj-anyblock
+    eyebrowse))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -144,6 +145,25 @@
                                       (projectile-prepend-project-name "Ag search for: ")
                                       (projectile-symbol-at-point))))
           (ag/search search-term (projectile-project-root))))
+
+      (defun env0der/ag-quit ()
+        (interactive)
+        (if (= 1 (count-windows))
+            (kill-buffer)
+          (kill-buffer-and-window)))
+
+      (defun env0der/ag-suspend ()
+        (interactive)
+        (if (= 1 (count-windows))
+            (quit-window)
+          (delete-window)))
+
+      ;; (defun env0der/ag-resume ()
+      ;;   (interactive))
+
+      (define-key ag-mode-map (kbd "q") 'env0der/ag-quit)
+      (define-key ag-mode-map (kbd "s") 'env0der/ag-suspend)
+      ;; (evil-leader/set-key "sr" 'env0der/ag-resume)
 
       ;; focus ag search results window when search is finished
       (add-hook 'compilation-finish-functions (lambda (buf str)
@@ -435,12 +455,24 @@
   (use-package highlight-symbol
     :config
     (progn
-      (setq highlight-symbol-idle-delay 0.2)
-      (add-hook 'prog-mode-hook (lambda ()
-                                  (highlight-symbol-mode 1)
-                                  (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
-                                  (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
-                                  (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))))))
+      (add-hook 'evil-normal-state-entry-hook (lambda ()
+                                                (if (derived-mode-p 'prog-mode)
+                                                    (progn
+                                                      (highlight-symbol-mode 1)
+                                                      (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
+                                                      (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
+                                                      (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))
+                                                  (highlight-symbol-mode -1))))
+      (add-hook 'evil-normal-state-exit-hook (lambda ()
+                                               (if (derived-mode-p 'prog-mode)
+                                                   (highlight-symbol-mode -1))))
+      (setq highlight-symbol-idle-delay 0.2))))
+
+(defun env0der/init-eyebrowse ()
+  (use-package eyebrowse
+    :config
+    (progn
+      (global-set-key [C-tab] 'eyebrowse-last-window-config))))
 
 (defun env0der/init-evil-cleverparens ()
   (use-package evil-cleverparens
