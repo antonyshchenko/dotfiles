@@ -144,6 +144,25 @@
                                       (projectile-symbol-at-point))))
           (ag/search search-term (projectile-project-root))))
 
+      (defun env0der/ag-quit ()
+        (interactive)
+        (if (= 1 (count-windows))
+            (kill-buffer)
+          (kill-buffer-and-window)))
+
+      (defun env0der/ag-suspend ()
+        (interactive)
+        (if (= 1 (count-windows))
+            (quit-window)
+          (delete-window)))
+
+      ;; (defun env0der/ag-resume ()
+      ;;   (interactive))
+
+      (define-key ag-mode-map (kbd "q") 'env0der/ag-quit)
+      (define-key ag-mode-map (kbd "s") 'env0der/ag-suspend)
+      ;; (evil-leader/set-key "sr" 'env0der/ag-resume)
+
       ;; focus ag search results window when search is finished
       (add-hook 'compilation-finish-functions (lambda (buf str)
                                                 (let ((buffer-contents (with-current-buffer buf (buffer-string))))
