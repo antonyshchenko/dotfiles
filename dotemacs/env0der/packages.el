@@ -28,7 +28,9 @@
     rspec-mode
     robe
     git-commit
-    highlight-symbol))
+    highlight-symbol
+    evil-cleverparens
+    evil-textobj-anyblock))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -435,7 +437,29 @@
     (progn
       (setq highlight-symbol-idle-delay 0.2)
       (add-hook 'prog-mode-hook (lambda ()
-                                 (highlight-symbol-mode 1)
-                                 (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
-                                 (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
-                                 (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))))))
+                                  (highlight-symbol-mode 1)
+                                  (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
+                                  (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
+                                  (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))))))
+
+(defun env0der/init-evil-cleverparens ()
+  (use-package evil-cleverparens
+    :config
+    (progn
+      (evil-cp-toggle-balanced-yank t)
+      (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+      (add-hook 'clojure-mode-hook #'evil-cleverparens-mode))))
+
+(defun env0der/init-evil-textobj-anyblock ()
+  (use-package evil-textobj-anyblock
+    :config
+    (progn
+      (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
+      (define-key evil-outer-text-objects-map "b" 'evil-textobj-anyblock-a-block)
+
+      (dolist (hook '(emacs-lisp-mode-hook clojure-mode-hook))
+        (add-hook hook (lambda ()
+                         (setq-local evil-textobj-anyblock-blocks '(("(" . ")")
+                                                                    ("{" . "}")
+                                                                    ("\\[" . "\\]")
+                                                                    ("\"" . "\"")))))))))
