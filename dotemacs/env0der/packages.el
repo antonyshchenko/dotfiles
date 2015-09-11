@@ -300,7 +300,46 @@
     (spacemacs|add-company-hook ruby-mode)
 
     (defun ruby/post-init-company ()
-      (spacemacs|add-company-hook ruby-mode))))
+      (spacemacs|add-company-hook ruby-mode)))
+
+  (evil-define-text-object evil-textobj-outer-ruby-block
+    (count &optional beg end type)
+    (evil-ruby-block-range beg end type count t))
+
+  (evil-define-text-object evil-textobj-inner-ruby-block
+    (count &optional beg end type)
+    (evil-ruby-block-range beg end type count nil))
+
+  (defun evil-ruby-block-range (count beg end type &optional inclusive)
+    (let ((current-point (point))
+          (block-begin (progn (evil-end-of-line) (re-search-backward "def \\|class \\|if \\|do \\|module " nil t)))
+          (block-end (progn (evilmi-jump-items) (point))))
+      (if inclusive
+          (let ((begin (progn (goto-char block-begin) (evil-beginning-of-line) (point)))
+                (end (progn (goto-char block-end) (evil-next-line) (evil-beginning-of-line) (if (looking-at "^$") (+ (point) 1) (point)))))
+            (progn
+              (goto-char current-point)
+              (evil-range begin end)))
+        (let ((begin (progn (goto-char block-begin) (evil-next-line) (evil-first-non-blank) (point)))
+              (end (progn (goto-char block-end) (evil-previous-line) (evil-end-of-line) (+ (point) 1))))
+          (progn
+            (goto-char current-point)
+            (evil-range begin end))))))
+
+  ;; (defun evil-textobj-anyblock--sort-blocks--with-ruby-blocks (orig-fn &rest args)
+  ;;   (if (derived-mode-p 'ruby-mode)
+  ;;       (let* ((block (apply 'evil-ruby-block-range args))
+  ;;              (blocks (cons block (apply orig-fn args)))
+  ;;              (sorted-blocks (sort blocks
+  ;;                                   (lambda (x y) (< (- (cl-second x) (cl-first x))
+  ;;                                                    (- (cl-second y) (cl-first y)))))))
+  ;;         sorted-blocks)
+  ;;     (apply orig-fn args)))
+
+  ;; (advice-add 'evil-textobj-anyblock--sort-blocks :around #'evil-textobj-anyblock--sort-blocks--with-ruby-blocks)
+
+  (define-key evil-inner-text-objects-map "B" 'evil-textobj-inner-ruby-block)
+  (define-key evil-outer-text-objects-map "B" 'evil-textobj-outer-ruby-block))
 
 (defun env0der/init-cperl-mode ()
   (defalias 'perl-mode 'cperl-mode)
@@ -489,6 +528,12 @@
       (define-key evil-inner-text-objects-map "b" 'evil-textobj-anyblock-inner-block)
       (define-key evil-outer-text-objects-map "b" 'evil-textobj-anyblock-a-block)
 
+      (add-hook 'ruby-mode-hook (lambda ()
+                                  (setq-local evil-textobj-anyblock-blocks '(("(" . ")")
+                                                                             ("{" . "}")
+                                                                             ("\\[" . "\\]")
+                                                                             ("'" . "'")
+                                                                             ("\"" . "\"")))))
       (dolist (hook '(emacs-lisp-mode-hook clojure-mode-hook))
         (add-hook hook (lambda ()
                          (setq-local evil-textobj-anyblock-blocks '(("(" . ")")
