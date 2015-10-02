@@ -30,7 +30,8 @@
     ruby-refactor
     ruby-hash-syntax
     git-commit
-    highlight-symbol
+    highlight-thing
+    ;; highlight-symbol
     evil-cleverparens
     evil-textobj-anyblock
     eyebrowse))
@@ -511,22 +512,31 @@
     (progn
       (setq git-commit-finish-query-functions '()))))
 
-(defun env0der/init-highlight-symbol ()
-  (use-package highlight-symbol
+(defun env0der/init-highlight-thing ()
+  (use-package highlight-thing
     :config
     (progn
-      (add-hook 'evil-normal-state-entry-hook (lambda ()
-                                                (if (derived-mode-p 'prog-mode)
-                                                    (progn
-                                                      (highlight-symbol-mode 1)
-                                                      (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
-                                                      (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
-                                                      (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))
-                                                  (highlight-symbol-mode -1))))
-      (add-hook 'evil-normal-state-exit-hook (lambda ()
-                                               (if (derived-mode-p 'prog-mode)
-                                                   (highlight-symbol-mode -1))))
-      (setq highlight-symbol-idle-delay 0.2))))
+      (global-highlight-thing-mode)
+      (add-hook 'prog-mode-hook 'highlight-thing-mode)
+      (setq highlight-thing-what-thing 'symbol)
+      (setq highlight-thing-limit-to-defun t))))
+
+;; (defun env0der/init-highlight-symbol ()
+;;   (use-package highlight-symbol
+;;     :config
+;;     (progn
+;;       (add-hook 'evil-normal-state-entry-hook (lambda ()
+;;                                                 (if (derived-mode-p 'prog-mode)
+;;                                                     (progn
+;;                                                       (highlight-symbol-mode 1)
+;;                                                       (define-key evil-normal-state-map (kbd "M-n") 'highlight-symbol-next)
+;;                                                       (define-key evil-normal-state-map (kbd "M-p") 'highlight-symbol-prev)
+;;                                                       (define-key evil-normal-state-map (kbd "M-r") 'highlight-symbol-query-replace))
+;;                                                   (highlight-symbol-mode -1))))
+;;       (add-hook 'evil-normal-state-exit-hook (lambda ()
+;;                                                (if (derived-mode-p 'prog-mode)
+;;                                                    (highlight-symbol-mode -1))))
+;;       (setq highlight-symbol-idle-delay 0.2))))
 
 (defun env0der/init-eyebrowse ()
   (use-package eyebrowse
