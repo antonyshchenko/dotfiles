@@ -27,6 +27,8 @@
     inf-ruby
     rspec-mode
     robe
+    ruby-refactor
+    ruby-hash-syntax
     git-commit
     highlight-symbol
     evil-cleverparens
@@ -484,6 +486,24 @@
 
       (add-hook 'robe-mode-hook (lambda ()
                                   (add-hook 'after-save-hook 'reload-ruby-file-if-robe-running nil 'make-it-local))))))
+
+(defun env0der/init-ruby-refactor ()
+  (use-package ruby-refactor
+    :init
+    (progn
+      (add-hook 'ruby-mode-hook 'ruby-refactor-mode-launch)
+      (evil-define-key 'visual ruby-mode-map (kbd (concat dotspacemacs-leader-key "re")) 'ruby-refactor-extract-to-method)
+      (evil-define-key 'visual ruby-mode-map (kbd (concat dotspacemacs-leader-key "rp")) 'ruby-refactor-add-parameter)
+      (evil-define-key 'visual ruby-mode-map (kbd (concat dotspacemacs-leader-key "rl")) 'ruby-refactor-extract-to-let)
+      (evil-define-key 'visual ruby-mode-map (kbd (concat dotspacemacs-leader-key "rv")) 'ruby-refactor-extract-local-variable)
+      (evil-define-key 'visual ruby-mode-map (kbd (concat dotspacemacs-leader-key "rc")) 'ruby-refactor-extract-constant)
+      (evil-define-key 'visual ruby-mode-map (kbd (concat dotspacemacs-leader-key "ro")) 'ruby-refactor-convert-post-conditional)
+      (evil-define-key 'normal ruby-mode-map (kbd (concat dotspacemacs-leader-key "rb")) 'ruby-toggle-block)
+      (evil-define-key 'visual ruby-mode-map (kbd (concat dotspacemacs-leader-key "rh")) 'ruby-toggle-hash-syntax)
+      )))
+
+(defun env0der/init-ruby-hash-syntax ()
+  (use-package ruby-hash-syntax))
 
 (defun env0der/init-git-commit ()
   (use-package git-commit
