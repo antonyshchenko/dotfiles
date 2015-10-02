@@ -214,7 +214,7 @@ layers configuration."
    '(magit-diff-del ((t (:background "#c91700"))))
    '(helm-selection ((t (:foreground "#4396e8"))))
    '(helm-source-header ((t (:foreground "white" :weight bold))))
-   '(highlight-symbol-face ((t (:background "gray30"))))
+   '(highlight-symbol-face ((t (:underline t))))
    '(rainbow-delimiters-depth-1-face ((t (:foreground "gray100"))))
    '(rainbow-delimiters-depth-2-face ((t (:foreground "orange1"))))
    '(rainbow-delimiters-depth-3-face ((t (:foreground "purple1"))))
