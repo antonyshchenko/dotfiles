@@ -6,6 +6,7 @@
   (interactive "P")
   (cond ((and (equal 'ruby-mode major-mode) robe-running) (robe-jump arg))
         ((equal 'emacs-lisp-mode major-mode) (elisp-slime-nav-find-elisp-thing-at-point (elisp-slime-nav--read-symbol-at-point)))
+        ((equal 'clojure-mode major-mode) (cider-find-dwim (hyper-jump/thing-at-point)))
         (t (helm-etags-select arg))))
 
 (defun hyper-jump/thing-at-point ()

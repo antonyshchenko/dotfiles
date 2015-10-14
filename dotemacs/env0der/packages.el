@@ -201,8 +201,30 @@
     (progn
       (defun cider-reset-system ()
         (interactive)
-        (spacemacs//cider-eval-in-repl-no-focus "(user/reset)"))
-      (define-key clojure-mode-map (kbd "s-r") 'cider-reset-system))))
+        (spacemacs//cider-eval-in-repl-no-focus "(reset)"))
+      (define-key clojure-mode-map (kbd "s-r") 'cider-reset-system)
+
+      ;; workaround for cider finding files in boot's temp directory
+      ;; first try to find file using relative path (resource key in response)
+      ;; if not found - it's probably a library and should be found using absolute path (file key in response)
+      (defun cider--jump-to-loc-from-info (info &optional other-window)
+        "Jump to location give by INFO.
+INFO object is returned by `cider-var-info' or `cider-member-info'.
+OTHER-WINDOW is passed to `cider-jamp-to'."
+        (let* ((line (nrepl-dict-get info "line"))
+               (file (nrepl-dict-get info "file"))
+               (resource (nrepl-dict-get info "resource"))
+               (name (nrepl-dict-get info "name"))
+               (local-buffer (and resource
+                                  (not (cider--tooling-file-p resource))
+                                  (cider-find-file resource)))
+               (buffer (or local-buffer (and file
+                                             (not (cider--tooling-file-p file))
+                                             (cider-find-file file)))))
+          (if buffer
+              (cider-jump-to buffer (if line (cons line nil) name) other-window)
+            (error "No source location"))))
+      )))
 
 (defun env0der/init-tabbar-ruler ()
   (use-package tabbar-ruler
