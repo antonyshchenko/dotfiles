@@ -10,4 +10,6 @@ ln -sf $SCRIPTPATH/.ctags ~/.ctags
 ln -sf $SCRIPTPATH/.editrc ~/.editrc
 ln -sf $SCRIPTPATH/.pryrc ~/.pryrc
 ln -sf $SCRIPTPATH/.tmux.conf ~/.tmux.conf
+mkdir -p ~/.boot
+ln -sf $SCRIPTPATH/.boot/profile.boot ~/.boot/profile.boot
 ln -sf $SCRIPTPATH/.hammerspoon ~/.hammerspoon
