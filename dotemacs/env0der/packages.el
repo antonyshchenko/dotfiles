@@ -142,13 +142,6 @@
     (progn
       (setq projectile-project-root-files (cons ".projectile" projectile-project-root-files))
 
-      (defun env0der/projectile-ag ()
-        (interactive)
-        (let ((search-term (read-from-minibuffer
-                                      (projectile-prepend-project-name "Ag search for: ")
-                                      (projectile-symbol-at-point))))
-          (ag/search search-term (projectile-project-root))))
-
       (defun env0der/ag-quit ()
         (interactive)
         (if (= 1 (count-windows))
@@ -174,13 +167,15 @@
                                                   (if (not (null (string-match "mode: ag;" buffer-contents)))
                                                       (select-window (get-buffer-window buf))))))
 
-      (evil-leader/set-key "/" 'env0der/projectile-ag)
+      (evil-leader/set-key "/" 'projectile-ag)
 
       (defun projectile-ag-with-ignore-files ()
         (interactive)
         (let ((search-term (read-from-minibuffer
                             (projectile-prepend-project-name "Ag search for: ")
-                            (projectile-symbol-at-point)))
+                            (if (use-region-p)
+                                (buffer-substring-no-properties (region-beginning) (region-end))
+                              (projectile-symbol-at-point))))
               (ignore-files (read-from-minibuffer
                              (projectile-prepend-project-name "Ag ignore files: "))))
           (setq tmp ag-arguments)
