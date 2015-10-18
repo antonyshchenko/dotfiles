@@ -165,6 +165,7 @@ layers configuration."
                                                         (magit-status)))))
 
   (evil-leader/set-key "tt" 'rspec-toggle-spec-and-target)
+  (evil-leader/set-key "tT" 'rspec-find-spec-or-target-other-window)
   (evil-leader/set-key "te" 'rspec-toggle-spec-and-target-find-example)
   (evil-leader/set-key "ta" 'rspec-verify-all)
   (evil-leader/set-key "tv" 'rspec-verify)
