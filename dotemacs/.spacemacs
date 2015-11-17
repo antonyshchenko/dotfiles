@@ -200,8 +200,10 @@ layers configuration."
   (show-smartparens-global-mode -1) ;; slow for large files
   (show-paren-mode) ;; this is faster
 
+  (global-unset-key (kbd "s-p")) ;; disable print-buffer keybinding in osx
+
   (custom-set-faces
-   '(default ((t (:inherit nil :stipple nil :background "#1d1f21" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
+   '(default ((t (:inherit nil :stipple nil :background "#181818" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
    '(font-lock-builtin-face ((t (:foreground "#f56e80"))))
    '(font-lock-keyword-face ((t (:foreground "#f56e80"))))
    '(font-lock-comment-face ((t (:foreground "gray43"))))
