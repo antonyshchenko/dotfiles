@@ -2,7 +2,6 @@
   '(ace-jump-buffer
     helm-projectile
     evil
-    evil-nerd-commenter
     evil-matchit
     color-identifiers-mode
     projectile
@@ -45,14 +44,14 @@
       (define-key key-translation-map [f9] (kbd "s-b"))
       (global-set-key (kbd "s-b") 'ace-jump-buffer))))
 
-(defun env0der/init-helm-projectile ()
+(defun env0der/post-init-helm-projectile ()
   (use-package helm-projectile
     :config
     (progn
       (define-key key-translation-map [f11] (kbd "s-o"))
       (global-set-key (kbd "s-o") 'helm-projectile-find-file))))
 
-(defun env0der/init-evil ()
+(defun env0der/post-init-evil ()
   (use-package evil
     :config
     (progn
@@ -122,20 +121,13 @@
                                                        (interactive)
                                                        (evil-insert-newline-above))))))
 
-(defun env0der/init-evil-nerd-commenter ()
-  (use-package evil-nerd-commenter
-    :config
-    (progn
-      (define-key evil-normal-state-map "gc" 'evilnc-comment-operator)
-      (define-key evil-visual-state-map "gc" 'evilnc-comment-operator))))
-
 (defun env0der/init-color-identifiers-mode ()
   (use-package color-identifiers-mode
     :init
     (progn
       (global-color-identifiers-mode))))
 
-(defun env0der/init-projectile ()
+(defun env0der/post-init-projectile ()
   (use-package projectile
     :config
     (progn
@@ -189,7 +181,7 @@
       ;;   projectile-generic-command)
       )))
 
-(defun env0der/init-cider ()
+(defun env0der/post-init-cider ()
   (use-package cider
     :config
     (progn
@@ -265,12 +257,12 @@ OTHER-WINDOW is passed to `cider-jamp-to'."
     ;; for some reason this is the only (but ugly) way to force tabbar to use any colors different from the default ones
     (run-with-idle-timer 5 nil (lambda ()
                                  (setq tabbar-background-color "#666666")
-                                 (set-face-attribute 'tabbar-selected nil :background "#1d1f21")
+                                 (set-face-attribute 'tabbar-selected nil :background "#181818")
                                  (set-face-attribute 'tabbar-selected nil :foreground "white")
                                  (tabbar-install-faces)
                                  (set-face-attribute 'tabbar-default nil :background "#666666")))))
 
-(defun env0der/init-web-mode ()
+(defun env0der/post-init-web-mode ()
   (use-package web-mode
     :config
     (progn
@@ -283,7 +275,7 @@ OTHER-WINDOW is passed to `cider-jamp-to'."
       (setq web-mode-indent-style 2)
       (sp-local-pair 'web-mode "<%= "  " %>"))))
 
-(defun env0der/init-company ()
+(defun env0der/post-init-company ()
   (use-package company
     :config
     (progn
@@ -427,7 +419,7 @@ OTHER-WINDOW is passed to `cider-jamp-to'."
     (progn
       (evil-leader/set-key "hb" 'helm-bm))))
 
-(defun env0der/init-evil-matchit ()
+(defun env0der/post-init-evil-matchit ()
   (use-package evil-matchit
     :config
     (progn
@@ -464,7 +456,7 @@ OTHER-WINDOW is passed to `cider-jamp-to'."
       (osx-clipboard-mode +1)
       (diminish 'osx-clipboard-mode))))
 
-(defun env0der/init-avy ()
+(defun env0der/post-init-avy ()
   (use-package avy
     :config
     (progn
@@ -522,7 +514,7 @@ OTHER-WINDOW is passed to `cider-jamp-to'."
 (defun env0der/init-ruby-hash-syntax ()
   (use-package ruby-hash-syntax))
 
-(defun env0der/init-git-commit ()
+(defun env0der/post-init-git-commit ()
   (use-package git-commit
     :config
     (progn
@@ -545,7 +537,7 @@ OTHER-WINDOW is passed to `cider-jamp-to'."
                                                    (highlight-symbol-mode -1))))
       (setq highlight-symbol-idle-delay 0.2))))
 
-(defun env0der/init-eyebrowse ()
+(defun env0der/post-init-eyebrowse ()
   (use-package eyebrowse
     :config
     (progn

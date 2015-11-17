@@ -5,6 +5,7 @@
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration."
   (setq-default
+   dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (ie. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -37,6 +38,7 @@ before layers configuration."
   ;; This setq-default sexp is an exhaustive list of all the supported
   ;; spacemacs settings.
   (setq-default
+   dotspacemacs-editing-style 'vim
    ;; Specify the startup banner. If the value is an integer then the
    ;; text banner with the corresponding index is used, if the value is
    ;; `random' then the banner is chosen randomly among the available banners,
@@ -117,7 +119,7 @@ before layers configuration."
   ;; User initialization goes here
   )
 
-(defun dotspacemacs/config ()
+(defun dotspacemacs/user-config ()
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
@@ -217,8 +219,7 @@ layers configuration."
    '(magit-diff-del ((t (:background "#c91700"))))
    '(helm-selection ((t (:foreground "#4396e8"))))
    '(helm-source-header ((t (:foreground "white" :weight bold))))
-   '(highlight-symbol-face ((t (:underline t))))
-   '(hi-yellow ((t (:background "gray30"))))
+   '(highlight-symbol-face ((t (:background "gray30"))))
    '(rainbow-delimiters-depth-1-face ((t (:foreground "gray100"))))
    '(rainbow-delimiters-depth-2-face ((t (:foreground "orange1"))))
    '(rainbow-delimiters-depth-3-face ((t (:foreground "purple1"))))
@@ -240,5 +241,6 @@ layers configuration."
    '(powerline-inactive1 ((t (:background "#545454" :foreground "white" :box nil))))
    '(powerline-inactive2 ((t (:background "#545454" :foreground "white" :box nil))))
    '(mode-line-inactive ((t (:background  "#545454" :foreground "white" :box nil))))
-   '(fringe ((t (:background "#1d1f21" :foreground "gray80"))))
-   `(trailing-whitespace ((t (:background "#1d1f21"))))))
+   '(fringe ((t (:background "#181818" :foreground "gray80"))))
+   `(trailing-whitespace ((t (:background "#181818")))))
+  )

@@ -15,8 +15,7 @@
 (defun env0der/init-evil-plugins ())
 
 (defun env0der/init-hyper-jump ()
-  (require 'hyper-jump))
+ (require 'hyper-jump))
 
-;; (defun env0der/init-helm-etags+ ()
-;;   (require 'helm-etags+)
-;;   )
+(defun env0der/init-helm-etags+ ()
+  (require 'helm-etags+))
