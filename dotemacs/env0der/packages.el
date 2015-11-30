@@ -14,6 +14,7 @@
     mo-git-blame
     js2-mode
     bm
+    helm
     helm-bm
     web-mode
     ctags-update
@@ -32,7 +33,8 @@
     highlight-symbol
     evil-cleverparens
     evil-textobj-anyblock
-    eyebrowse))
+    eyebrowse
+    popwin))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -148,8 +150,8 @@
       ;; (defun env0der/ag-resume ()
       ;;   (interactive))
 
-      (define-key ag-mode-map (kbd "q") 'env0der/ag-quit)
-      (define-key ag-mode-map (kbd "s") 'env0der/ag-suspend)
+      ;; (define-key ag-mode-map (kbd "q") 'env0der/ag-quit)
+      ;; (define-key ag-mode-map (kbd "s") 'env0der/ag-suspend)
       ;; (evil-leader/set-key "sr" 'env0der/ag-resume)
 
       ;; focus ag search results window when search is finished
@@ -570,3 +572,19 @@ OTHER-WINDOW is passed to `cider-jamp-to'."
                                                                     ("{" . "}")
                                                                     ("\\[" . "\\]")
                                                                     ("\"" . "\"")))))))))
+
+(defun env0der/post-init-helm ()
+  (use-package helm
+    :config
+    (progn
+      (helm-autoresize-mode 1)
+      ;; make helm window always occupy 30% of frame height
+      (setq helm-autoresize-min-height 30)
+      (setq helm-autoresize-max-height 30))))
+
+(defun env0der/post-init-popwin ()
+  (use-package popwin
+    :config
+    (progn
+      ;; ag search results always on the bottom, 30% of frame height
+      (push '("^\*ag search.+\*$" :regexp t :height 0.3 :position bottom :stick t) popwin:special-display-config))))
