@@ -126,9 +126,6 @@ layers configuration."
   (server-start)
   (blink-cursor-mode t)
   (setq powerline-default-separator nil)
-  ;; (spacemacs/toggle-line-numbers)
-  ;; (linum-relative-toggle)
-  ;; (setq linum-relative-format "%3s ")
   (add-hook 'css-mode-hook 'rainbow-mode)
   ;; rebind some spacemacs bindings
   (use-package helm
@@ -242,4 +239,5 @@ layers configuration."
    '(mode-line-inactive ((t (:background  "#545454" :foreground "white" :box nil))))
    '(fringe ((t (:background "#181818" :foreground "gray80"))))
    '(trailing-whitespace ((t (:background "#181818"))))
-   '(hl-line ((t (:background "#3d3d3d"))))))
+   '(hl-line ((t (:background "#3d3d3d"))))
+   '(linum-relative-current-face ((t (:foreground "#CAE682" :background "#181818"))))))

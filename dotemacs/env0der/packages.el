@@ -18,7 +18,6 @@
     helm-bm
     web-mode
     ctags-update
-    nlinum
     ag
     browse-at-remote
     osx-clipboard
@@ -35,7 +34,8 @@
     evil-textobj-anyblock
     eyebrowse
     popwin
-    vi-tilde-fringe))
+    vi-tilde-fringe
+    linum-relative))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -417,15 +417,11 @@
       (add-hook 'after-save-hook 'ctags-update)
       (evil-leader/set-key "pR" 'ctags-update))))
 
-(defun env0der/init-nlinum ()
-  (use-package nlinum
+(defun env0der/init-ag ()
+  (use-package ag
     :config
     (progn
-      (global-nlinum-mode t)
-      (setq nlinum-format "%d "))))
-
-(defun env0der/init-ag ()
-  (use-package ag))
+      (setq ag-highlight-search t))))
 
 (defun env0der/init-browse-at-remote ()
   (use-package browse-at-remote))
@@ -573,3 +569,12 @@
     :config
     (progn
       (vi-tilde-fringe-mode -1))))
+
+(defun env0der/post-init-linum-relative ()
+  (use-package linum-relative
+    :config
+    (progn
+      (spacemacs/toggle-line-numbers)
+      (linum-relative-toggle)
+      (setq linum-relative-plusp-offset 1)
+      (setq linum-relative-format "%3s "))))
