@@ -124,7 +124,6 @@ before layers configuration."
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
   (server-start)
-  (global-hl-line-mode -1)
   (blink-cursor-mode t)
   (setq powerline-default-separator nil)
   ;; (spacemacs/toggle-line-numbers)
@@ -242,5 +241,5 @@ layers configuration."
    '(powerline-inactive2 ((t (:background "#545454" :foreground "white" :box nil))))
    '(mode-line-inactive ((t (:background  "#545454" :foreground "white" :box nil))))
    '(fringe ((t (:background "#181818" :foreground "gray80"))))
-   `(trailing-whitespace ((t (:background "#181818")))))
-  )
+   '(trailing-whitespace ((t (:background "#181818"))))
+   '(hl-line ((t (:background "#3d3d3d"))))))
