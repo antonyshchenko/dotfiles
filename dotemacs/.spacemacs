@@ -113,9 +113,7 @@ before layers configuration."
    ruby-version-manager 'rbenv
    ruby-enable-ruby-on-rails-support t
    git-enable-github-support t
-   git-magit-status-fullscreen t
-   git-gutter-use-fringe nil
-   )
+   git-magit-status-fullscreen t)
   ;; User initialization goes here
   )
 
@@ -151,15 +149,6 @@ layers configuration."
 
   ;; (define-key evil-insert-state-map (kbd "<tab>") 'evil-normal-state)
   (evil-leader/set-key "pR" 'ctags-update)
-
-  (use-package git-commit
-    :config
-    (progn
-      ;; show magit status after finishing commit
-      (define-key git-commit-mode-map (kbd "C-c C-c") (lambda(force)
-                                                        (interactive "P")
-                                                        (with-editor-finish force)
-                                                        (magit-status)))))
 
   (evil-leader/set-key "tt" 'rspec-toggle-spec-and-target)
   (evil-leader/set-key "tT" 'rspec-find-spec-or-target-other-window)

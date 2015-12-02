@@ -13,5 +13,3 @@
 
 (desktop-save-mode 1)
 (setq ns-pop-up-frames nil)
-
-(set-fringe-mode 0)

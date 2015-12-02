@@ -521,7 +521,7 @@
   (use-package vi-tilde-fringe
     :config
     (progn
-      (vi-tilde-fringe-mode -1))))
+      (global-vi-tilde-fringe-mode -1))))
 
 (defun env0der/post-init-linum-relative ()
   (use-package linum-relative
