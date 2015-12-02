@@ -35,7 +35,8 @@
     eyebrowse
     popwin
     vi-tilde-fringe
-    linum-relative))
+    linum-relative
+    magit))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -578,3 +579,9 @@
       (linum-relative-toggle)
       (setq linum-relative-plusp-offset 1)
       (setq linum-relative-format "%3s "))))
+
+(defun env0der/post-init-magit ()
+  (use-package magit
+    :config
+    (progn
+      (setq magit-push-always-verify nil))))
