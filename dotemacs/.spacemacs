@@ -24,7 +24,7 @@
                                        eyebrowse)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '(evil-escape flycheck git-gutter)
+   dotspacemacs-excluded-packages '(evil-escape flycheck)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'
@@ -59,10 +59,10 @@ before layers configuration."
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
-   dotspacemacs-leader-key ","
+   dotspacemacs-leader-key "SPC"
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it.
-   dotspacemacs-major-mode-leader-key nil
+   dotspacemacs-major-mode-leader-key ","
    ;; The command key used for Evil commands (ex-commands) and
    ;; Emacs commands (M-x).
    ;; By default the command key is `:' so ex-commands are executed like in Vim
