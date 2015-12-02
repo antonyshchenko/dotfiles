@@ -18,7 +18,6 @@
     helm-bm
     web-mode
     ctags-update
-    ag
     browse-at-remote
     osx-clipboard
     avy
@@ -53,7 +52,8 @@
     :config
     (progn
       (define-key key-translation-map [f11] (kbd "s-o"))
-      (global-set-key (kbd "s-o") 'helm-projectile-find-file))))
+      (global-set-key (kbd "s-o") 'helm-projectile-find-file)
+      (evil-leader/set-key "/" 'spacemacs/helm-project-smart-do-search-region-or-symbol))))
 
 (defun env0der/post-init-evil ()
   (use-package evil
@@ -136,48 +136,6 @@
     :config
     (progn
       (setq projectile-project-root-files (cons ".projectile" projectile-project-root-files))
-
-      (defun env0der/ag-quit ()
-        (interactive)
-        (if (= 1 (count-windows))
-            (kill-buffer)
-          (kill-buffer-and-window)))
-
-      (defun env0der/ag-suspend ()
-        (interactive)
-        (if (= 1 (count-windows))
-            (quit-window)
-          (delete-window)))
-
-      ;; (defun env0der/ag-resume ()
-      ;;   (interactive))
-
-      ;; (define-key ag-mode-map (kbd "q") 'env0der/ag-quit)
-      ;; (define-key ag-mode-map (kbd "s") 'env0der/ag-suspend)
-      ;; (evil-leader/set-key "sr" 'env0der/ag-resume)
-
-      ;; focus ag search results window when search is finished
-      (add-hook 'compilation-finish-functions (lambda (buf str)
-                                                (let ((buffer-contents (with-current-buffer buf (buffer-string))))
-                                                  (if (not (null (string-match "mode: ag;" buffer-contents)))
-                                                      (select-window (get-buffer-window buf))))))
-
-      (evil-leader/set-key "/" 'projectile-ag)
-
-      (defun projectile-ag-with-ignore-files ()
-        (interactive)
-        (let ((search-term (read-from-minibuffer
-                            (projectile-prepend-project-name "Ag search for: ")
-                            (if (use-region-p)
-                                (buffer-substring-no-properties (region-beginning) (region-end))
-                              (projectile-symbol-at-point))))
-              (ignore-files (read-from-minibuffer
-                             (projectile-prepend-project-name "Ag ignore files: "))))
-          (setq tmp ag-arguments)
-          (setq ag-arguments (cons (format "--ignore=%s" ignore-files) ag-arguments))
-          (ag search-term (projectile-project-root))
-          (setq ag-arguments tmp)))
-      (global-set-key (kbd "s-G") 'projectile-ag-with-ignore-files)
 
       ;; always use system find command to get project files
       ;; otherwise deleted files will be still shown until they are staged in git
@@ -418,12 +376,6 @@
       (add-hook 'after-save-hook 'ctags-update)
       (evil-leader/set-key "pR" 'ctags-update))))
 
-(defun env0der/init-ag ()
-  (use-package ag
-    :config
-    (progn
-      (setq ag-highlight-search t))))
-
 (defun env0der/init-browse-at-remote ()
   (use-package browse-at-remote))
 
@@ -562,8 +514,8 @@
   (use-package popwin
     :config
     (progn
-      ;; ag search results always on the bottom, 30% of frame height
-      (push '("^\*ag search.+\*$" :regexp t :height 0.3 :position bottom :stick t) popwin:special-display-config))))
+      ;; helm ag search results always on the bottom, 30% of frame height
+      (push '("^\*helm ag.+\*$" :regexp t :height 0.3 :position bottom :stick t) popwin:special-display-config))))
 
 (defun env0der/post-init-vi-tilde-fringe ()
   (use-package vi-tilde-fringe

@@ -142,7 +142,6 @@ layers configuration."
       (setq helm-echo-input-in-header-line nil) ;; disable temporarely because of glitches in terminal
       ))
 
-  (global-set-key (kbd "s-/") 'spacemacs/helm-projectile-smart-do-search)
   (global-set-key (kbd "C-s") 'evil-search-forward)
   (evil-leader/set-key "bk" 'spacemacs/kill-this-buffer)
   (evil-leader/set-key "bd" 'env0der/delete-current-buffer-file)
