@@ -53,7 +53,7 @@ before layers configuration."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
-   dotspacemacs-default-font '("Menlo"
+   dotspacemacs-default-font '("Meslo LG S for Powerline"
                                :size 14
                                :weight normal
                                :width normal
@@ -188,14 +188,8 @@ layers configuration."
 
   (global-unset-key (kbd "s-p")) ;; disable print-buffer keybinding in osx
 
-  ;; powerline customization
-  (setq powerline-default-separator nil)
-  (spacemacs/toggle-mode-line-minor-modes-off)
-  (spacemacs/toggle-mode-line-new-version-off)
-  (spacemacs|define-mode-line-segment hud nil) ;; disable hud (position in buffer)
-
   (custom-set-faces
-   '(default ((t (:inherit nil :stipple nil :background "#181818" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
+   '(default ((t (:family "Meslo LG M for Powerline" :inherit nil :stipple nil :background "#181818" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
    '(font-lock-builtin-face ((t (:foreground "#f56e80"))))
    '(font-lock-keyword-face ((t (:foreground "#f56e80"))))
    '(font-lock-comment-face ((t (:foreground "gray43"))))

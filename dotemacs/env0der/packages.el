@@ -36,7 +36,8 @@
     vi-tilde-fringe
     linum-relative
     magit
-    s))
+    s
+    powerline))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -560,3 +561,27 @@
     :config
     (progn
       (setq magit-push-always-verify nil))))
+
+(defun env0der/post-init-powerline ()
+  (use-package powerline
+    :config
+    (progn
+      (setq powerline-default-separator nil)
+      (spacemacs/toggle-mode-line-major-mode-off)
+      (spacemacs/toggle-mode-line-minor-modes-off)
+      (spacemacs/toggle-mode-line-new-version-off)
+      (spacemacs|define-mode-line-segment workspace-number nil)
+      (spacemacs|define-mode-line-segment hud nil) ;; disable hud (position in buffer)
+
+      (defpowerline env0der/powerline-vc
+        (when (and (buffer-file-name (current-buffer)) vc-mode)
+          (let ((backend (vc-backend (buffer-file-name (current-buffer)))))
+            (when backend
+              (format " %s %s"
+                      (char-to-string #xe0a0)
+                      (vc-working-revision (buffer-file-name (current-buffer)) backend))))))
+
+      (spacemacs|define-mode-line-segment version-control
+        (s-trim (env0der/powerline-vc))
+        :when (and (env0der/powerline-vc)
+                   spacemacs-mode-line-version-controlp)))))
