@@ -59,6 +59,8 @@
   (use-package evil
     :config
     (progn
+      (define-key evil-normal-state-map [C-tab] 'evil-buffer)
+
       ;;;; Clipboard bypass in evil mode
       (defmacro without-evil-mode (&rest do-this)
         ;; Check if evil-mode is on, and disable it temporarily
@@ -471,7 +473,8 @@
   (use-package eyebrowse
     :config
     (progn
-      (global-set-key [C-tab] 'eyebrowse-last-window-config))))
+      ;; (global-set-key [C-tab] 'eyebrowse-last-window-config)
+      )))
 
 (defun env0der/init-evil-cleverparens ()
   (use-package evil-cleverparens
