@@ -48,16 +48,13 @@
   (use-package ace-jump-buffer
     :config
     (progn
-      (defvar user-home-directory (concat (expand-file-name "~") "/"))
-
       (setq ajb/bs-attributes-list '(("" 2 2 left " ")
                                        ("" 1 1 left bs--get-marked-string)
                                        ("" 1 1 left " ")
                                        ("Buffer" bs--get-name-length 10 left bs--get-name)
                                        ("File"   12 12 left  (lambda (_start-buffer _all-buffers)
                                                                (let* ((fname (bs--get-file-name _start-buffer _all-buffers))
-                                                                      (fname-dir (file-name-directory (s-replace user-home-directory "~/"
-                                                                                                                 fname))))
+                                                                      (fname-dir (file-name-directory (abbreviate-file-name fname))))
                                                                  (if fname-dir
                                                                      fname-dir
                                                                    ""))))))

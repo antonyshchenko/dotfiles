@@ -123,7 +123,6 @@ before layers configuration."
 layers configuration."
   (server-start)
   (blink-cursor-mode t)
-  (setq powerline-default-separator nil)
   (add-hook 'css-mode-hook 'rainbow-mode)
   ;; rebind some spacemacs bindings
   (use-package helm
@@ -188,6 +187,12 @@ layers configuration."
   (show-paren-mode) ;; this is faster
 
   (global-unset-key (kbd "s-p")) ;; disable print-buffer keybinding in osx
+
+  ;; powerline customization
+  (setq powerline-default-separator nil)
+  (spacemacs/toggle-mode-line-minor-modes-off)
+  (spacemacs/toggle-mode-line-new-version-off)
+  (spacemacs|define-mode-line-segment hud nil) ;; disable hud (position in buffer)
 
   (custom-set-faces
    '(default ((t (:inherit nil :stipple nil :background "#181818" :foreground "gray100" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :foundry "nil"))))
