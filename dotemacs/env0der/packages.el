@@ -35,17 +35,40 @@
     popwin
     vi-tilde-fringe
     linum-relative
-    magit))
+    magit
+    s))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
+
+(defun env0der/init-s ()
+  (use-package s))
 
 (defun env0der/init-ace-jump-buffer ()
   (use-package ace-jump-buffer
     :config
     (progn
+      (defvar user-home-directory (concat (expand-file-name "~") "/"))
+
+      (setq ajb/bs-attributes-list '(("" 2 2 left " ")
+                                       ("" 1 1 left bs--get-marked-string)
+                                       ("" 1 1 left " ")
+                                       ("Buffer" bs--get-name-length 10 left bs--get-name)
+                                       ("File"   12 12 left  (lambda (_start-buffer _all-buffers)
+                                                               (let* ((fname (bs--get-file-name _start-buffer _all-buffers))
+                                                                      (fname-dir (file-name-directory (s-replace user-home-directory "~/"
+                                                                                                                 fname))))
+                                                                 (if fname-dir
+                                                                     fname-dir
+                                                                   ""))))))
+
+      (make-ace-jump-buffer-function "projectile"
+        (let ((project-root (projectile-project-root)))
+          (with-current-buffer buffer
+            (not (projectile-project-buffer-p buffer project-root)))))
+
       (define-key key-translation-map [f9] (kbd "s-b"))
-      (global-set-key (kbd "s-b") 'ace-jump-buffer))))
+      (global-set-key (kbd "s-b") 'ace-jump-projectile-buffers))))
 
 (defun env0der/post-init-helm-projectile ()
   (use-package helm-projectile
