@@ -11,17 +11,17 @@
    dotspacemacs-configuration-layer-path '()
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
-   dotspacemacs-configuration-layers '(env0der
-                                       colors
-                                       html
-                                       ;; ruby
+   dotspacemacs-configuration-layers '((auto-completion :variables auto-completion-use-tab-instead-of-enter t)
                                        clojure
-                                       dash
-                                       (auto-completion :variables auto-completion-use-tab-instead-of-enter t)
-                                       git
+                                       colors
                                        csharp
+                                       dash
+                                       elixir
                                        emacs-lisp
-                                       eyebrowse)
+                                       env0der
+                                       eyebrowse
+                                       git
+                                       html)
 
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(evil-escape flycheck)
