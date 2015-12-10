@@ -584,4 +584,15 @@
       (spacemacs|define-mode-line-segment version-control
         (s-trim (env0der/powerline-vc))
         :when (and (env0der/powerline-vc)
-                   spacemacs-mode-line-version-controlp)))))
+                   spacemacs-mode-line-version-controlp))
+
+      ;; show current buffer path in modeline in format:
+      ;; <project name>:<relative file path from project root>
+      (setq-default mode-line-buffer-identification
+                    (let ((orig (car mode-line-buffer-identification)))
+                      `(:eval
+                        (cons
+                         (condition-case nil
+                             (concat (s-replace (projectile-project-root) (concat (projectile-project-name) ":") default-directory) ,orig)
+                           (error ,orig))
+                         (cdr mode-line-buffer-identification))))))))
