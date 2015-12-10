@@ -164,6 +164,10 @@ layers configuration."
 
   (define-key evil-visual-state-map (kbd "TAB") 'align-regexp)
 
+  ;; narrowing dwim
+  (define-key evil-normal-state-map (kbd "SPC n n") #'narrow-or-widen-dwim)
+  (define-key evil-visual-state-map (kbd "SPC n n") #'narrow-or-widen-dwim)
+
   ;; customize theme
   (set-face-attribute 'spacemacs-emacs-face nil :box nil)
   (set-face-attribute 'spacemacs-evilified-face nil :box nil)
