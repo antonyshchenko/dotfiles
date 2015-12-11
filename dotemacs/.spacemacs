@@ -59,10 +59,10 @@ before layers configuration."
                                :width normal
                                :powerline-scale 1.1)
    ;; The leader key
-   dotspacemacs-leader-key "SPC"
+   dotspacemacs-leader-key ","
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it.
-   dotspacemacs-major-mode-leader-key ","
+   dotspacemacs-major-mode-leader-key nil
    ;; The command key used for Evil commands (ex-commands) and
    ;; Emacs commands (M-x).
    ;; By default the command key is `:' so ex-commands are executed like in Vim
@@ -165,8 +165,8 @@ layers configuration."
   (define-key evil-visual-state-map (kbd "TAB") 'align-regexp)
 
   ;; narrowing dwim
-  (define-key evil-normal-state-map (kbd "SPC n n") #'narrow-or-widen-dwim)
-  (define-key evil-visual-state-map (kbd "SPC n n") #'narrow-or-widen-dwim)
+  (define-key evil-normal-state-map (kbd ", n n") #'narrow-or-widen-dwim)
+  (define-key evil-visual-state-map (kbd ", n n") #'narrow-or-widen-dwim)
 
   ;; customize theme
   (set-face-attribute 'spacemacs-emacs-face nil :box nil)
