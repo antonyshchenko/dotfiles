@@ -54,6 +54,19 @@ e () {
     fi
 }
 
+tab () {
+  osascript 2>/dev/null <<EOF
+tell application "iTerm"
+    tell the first terminal
+    activate current session
+    tell the the current session
+        write text "cd $PWD; $*"
+    end tell
+    end tell
+end tell
+EOF
+}
+
 alias be='bundle exec'
 alias bi='bundle install'
 

@@ -169,22 +169,22 @@ layers configuration."
   (define-key evil-visual-state-map (kbd ", n n") #'narrow-or-widen-dwim)
 
   ;; customize theme
-  (set-face-attribute 'spacemacs-emacs-face nil :box nil)
-  (set-face-attribute 'spacemacs-evilified-face nil :box nil)
-  (set-face-attribute 'spacemacs-helm-navigation-ms-face nil :box nil)
-  (set-face-attribute 'spacemacs-ido-navigation-ms-face nil :box nil)
-  (set-face-attribute 'spacemacs-iedit-face nil :box nil)
-  (set-face-attribute 'spacemacs-iedit-insert-face nil :box nil)
-  (set-face-attribute 'spacemacs-insert-face nil :box nil)
-  (set-face-attribute 'spacemacs-lisp-face nil :box nil)
-  (set-face-attribute 'spacemacs-micro-state-binding-face nil :box nil)
-  (set-face-attribute 'spacemacs-micro-state-header-face nil :box nil)
-  (set-face-attribute 'spacemacs-mode-line-new-version-lighter-error-face nil :box nil)
-  (set-face-attribute 'spacemacs-mode-line-new-version-lighter-success-face nil :box nil)
-  (set-face-attribute 'spacemacs-mode-line-new-version-lighter-warning-face nil :box nil)
-  (set-face-attribute 'spacemacs-motion-face nil :box nil)
-  (set-face-attribute 'spacemacs-normal-face nil :box nil)
-  (set-face-attribute 'spacemacs-visual-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-emacs-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-evilified-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-helm-navigation-ms-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-ido-navigation-ms-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-iedit-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-iedit-insert-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-insert-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-lisp-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-micro-state-binding-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-micro-state-header-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-mode-line-new-version-lighter-error-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-mode-line-new-version-lighter-success-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-mode-line-new-version-lighter-warning-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-motion-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-normal-face nil :box nil)
+  ;; (set-face-attribute 'spacemacs-visual-face nil :box nil)
 
   ;; fix performance issue with showing related paren in a large buffer
   (show-smartparens-global-mode -1) ;; slow for large files
@@ -232,3 +232,16 @@ layers configuration."
    '(trailing-whitespace ((t (:background "#181818"))))
    '(hl-line ((t (:background "#3d3d3d"))))
    '(linum-relative-current-face ((t (:foreground "#CAE682" :background "#181818"))))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values (quote ((encoding . utf-8)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))

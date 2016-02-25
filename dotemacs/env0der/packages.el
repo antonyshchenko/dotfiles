@@ -7,8 +7,8 @@
     color-identifiers-mode
     projectile
     cider
-    tabbar
-    tabbar-ruler
+    ;; tabbar
+    ;; tabbar-ruler
     company
     ruby-mode
     cperl-mode
@@ -32,13 +32,13 @@
     highlight-symbol
     evil-cleverparens
     evil-textobj-anyblock
-    eyebrowse
+    ;; eyebrowse
     popwin
     vi-tilde-fringe
     linum-relative
     magit
     s
-    powerline))
+    spaceline))
 
 (defvar env0der-excluded-packages '()
   "List of packages to exclude.")
@@ -502,12 +502,12 @@
                                                    (highlight-symbol-mode -1))))
       (setq highlight-symbol-idle-delay 0.2))))
 
-(defun env0der/post-init-eyebrowse ()
-  (use-package eyebrowse
-    :config
-    (progn
-      ;; (global-set-key [C-tab] 'eyebrowse-last-window-config)
-      )))
+;; (defun env0der/post-init-eyebrowse ()
+;;   (use-package eyebrowse
+;;     :config
+;;     (progn
+;;       ;; (global-set-key [C-tab] 'eyebrowse-last-window-config)
+;;       )))
 
 (defun env0der/init-evil-cleverparens ()
   (use-package evil-cleverparens
@@ -563,7 +563,8 @@
   (use-package linum-relative
     :config
     (progn
-      (spacemacs/toggle-line-numbers)
+      ;; (spacemacs/toggle-line-numbers)
+      (global-linum-mode)
       (linum-relative-toggle)
       (setq linum-relative-plusp-offset 1)
       (setq linum-relative-format "%3s "))))
@@ -574,29 +575,33 @@
     (progn
       (setq magit-push-always-verify nil))))
 
-(defun env0der/post-init-powerline ()
-  (use-package powerline
+(defun env0der/post-init-spaceline ()
+  (use-package spaceline
     :config
     (progn
       (setq powerline-default-separator nil)
       (spacemacs/toggle-mode-line-major-mode-off)
-      (spacemacs/toggle-mode-line-minor-modes-off)
-      (spacemacs/toggle-mode-line-new-version-off)
-      (spacemacs|define-mode-line-segment workspace-number nil)
-      (spacemacs|define-mode-line-segment hud nil) ;; disable hud (position in buffer)
+      (spaceline-toggle-minor-modes-off)
+      (spaceline-toggle-new-version-off)
+      ;; (spacemacs|define-mode-line-segment workspace-number nil)
+      (spaceline-toggle-workspace-number-off)
+      (spaceline-toggle-hud-off)
+      (spaceline-toggle-persp-name-on)
 
-      (defpowerline env0der/powerline-vc
-        (when (and (buffer-file-name (current-buffer)) vc-mode)
-          (let ((backend (vc-backend (buffer-file-name (current-buffer)))))
-            (when backend
-              (format " %s %s"
-                      (char-to-string #xe0a0)
-                      (vc-working-revision (buffer-file-name (current-buffer)) backend))))))
+      ;; (spacemacs|define-mode-line-segment hud nil) ;; disable hud (position in buffer)
 
-      (spacemacs|define-mode-line-segment version-control
-        (s-trim (env0der/powerline-vc))
-        :when (and (env0der/powerline-vc)
-                   spacemacs-mode-line-version-controlp))
+      ;; (defpowerline env0der/powerline-vc
+      ;;   (when (and (buffer-file-name (current-buffer)) vc-mode)
+      ;;     (let ((backend (vc-backend (buffer-file-name (current-buffer)))))
+      ;;       (when backend
+      ;;         (format " %s %s"
+      ;;                 (char-to-string #xe0a0)
+      ;;                 (vc-working-revision (buffer-file-name (current-buffer)) backend))))))
+
+      ;; (spacemacs|define-mode-line-segment version-control
+      ;;   (s-trim (env0der/powerline-vc))
+      ;;   :when (and (env0der/powerline-vc)
+      ;;              spacemacs-mode-line-version-controlp))
 
       ;; show current buffer path in modeline in format:
       ;; <project name>:<relative file path from project root>
