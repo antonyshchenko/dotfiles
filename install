@@ -4,6 +4,13 @@ SCRIPTPATH=`pwd`
 
 ln -sf $SCRIPTPATH/dotemacs/env0der ~/.emacs.d/private/env0der
 ln -sf $SCRIPTPATH/dotemacs/.spacemacs ~/.spacemacs
+ln -sf $SCRIPTPATH/.zprezto ~/.zprezto
+
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+
 ln -sf $SCRIPTPATH/.zshrc ~/.zshrc
 ln -sf $SCRIPTPATH/.zpreztorc ~/.zpreztorc
 ln -sf $SCRIPTPATH/.ctags ~/.ctags
