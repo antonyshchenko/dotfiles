@@ -1,7 +1,10 @@
 #!/usr/bin/env zsh
 
+# dotfiles
+
 SCRIPTPATH=`pwd`
 
+ln -sf $SCRIPTPATH/.config/nvim/init.vim ~/.config/nvim/init.vim
 ln -sf $SCRIPTPATH/dotemacs/env0der ~/.emacs.d/private/env0der
 ln -sf $SCRIPTPATH/dotemacs/.spacemacs ~/.spacemacs
 ln -sf $SCRIPTPATH/.zprezto ~/.zprezto
@@ -20,3 +23,13 @@ ln -sf $SCRIPTPATH/.tmux.conf ~/.tmux.conf
 mkdir -p ~/.boot
 ln -sf $SCRIPTPATH/.boot/profile.boot ~/.boot/profile.boot
 ln -sf $SCRIPTPATH/.hammerspoon ~/.hammerspoon
+
+# neovim
+brew install python3
+pip3 install neovim
+
+brew install neovim/neovim/neovim
+curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+vim +PlugInstall +qall
+
