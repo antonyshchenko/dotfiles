@@ -2,7 +2,9 @@ let mapleader = ','
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround' "{{{
+  let g:surround_no_insert_mappings = 1
+"}}}
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
@@ -30,6 +32,9 @@ Plug 'Shougo/unite.vim' "{{{
 
   nnoremap <silent> <c-p> :Unite -auto-resize -start-insert -direction=botright buffer file_rec/async<CR>
 
+	" Open Unite with word under cursor or selection
+	nnoremap <silent> <Leader>gf :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
+
   " Custom mappings for the unite buffer
   autocmd FileType unite call s:unite_settings()
 
@@ -37,6 +42,9 @@ Plug 'Shougo/unite.vim' "{{{
 	  " Enable navigation with control-j and control-k in insert mode
 	  imap <buffer> <C-j>   <Plug>(unite_select_next_line)
 	  imap <buffer> <C-k>   <Plug>(unite_select_previous_line)
+    imap <silent><buffer><expr> <C-s>     unite#do_action('split')
+    imap <silent><buffer><expr> <C-v>     unite#do_action('vsplit')
+    imap <silent><buffer><expr> <C-t>     unite#do_action('tabswitch')
   endfunction "}}}
 "}}}
 
@@ -168,8 +176,9 @@ Plug 't9md/vim-choosewin' "{{{
     \ 'cterm': [ 72, 64 ], 'gui': [ '#7BB292' ] }
 "}}}
 
-Plug 'Raimondi/delimitMate' "{{{
-  let g:delimitMate_expand_cr = 1
+Plug 'https://github.com/env0der/delimitMate.git', { 'branch': 'optional-jump-over' } "{{{
+ let g:delimitMate_expand_cr = 1
+ let g:delimitMate_jump_over_in_insert_mode = 0
 "}}}
 
 Plug 'haya14busa/vim-asterisk' "{{{
@@ -230,6 +239,7 @@ set hidden
 
 " Keep the cursor on the same column
 set nostartofline
+set regexpengine=1
 
 inoremap jj <ESC>
 
