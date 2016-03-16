@@ -19,9 +19,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
   nnoremap <leader>L :Lines<cr>
   nnoremap <leader>t :BTags<cr>
   nnoremap <leader>T :Tags<cr>
-  nmap <leader>ag :Ag<space>
-  nmap <leader>aw :Ag <C-r><C-w>
-  vmap <leader>aw y:Ag <C-r>0<CR>
 "}}}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim' "{{{
@@ -30,10 +27,18 @@ Plug 'Shougo/unite.vim' "{{{
   let g:unite_prompt='» '
   let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'lib']
 
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden -a -S'
+  let g:unite_source_grep_recursive_opt=''
+
   nnoremap <silent> <c-p> :Unite -auto-resize -start-insert -direction=botright buffer file_rec/async<CR>
 
 	" Open Unite with word under cursor or selection
-	nnoremap <silent> <Leader>gf :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
+	nnoremap <silent> <Leader>f :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
+
+  nnoremap <silent><Leader>g :Unite -auto-resize -start-insert -silent -no-quit -direction=botright grep<CR>
+  nnoremap <silent><Leader>G :UniteWithCursorWord -auto-resize -start-insert -silent -no-quit -direction=botright grep<CR>
+  nnoremap <leader>qu :UniteClose<CR>
 
   " Custom mappings for the unite buffer
   autocmd FileType unite call s:unite_settings()
@@ -95,12 +100,6 @@ Plug 'gcmt/taboo.vim' "{{{
   set sessionoptions+=tabpages,globals
   let g:taboo_tabline = 0
   nmap <leader>tr :TabooRename<space>
-"}}}
-
-Plug 'mhinz/vim-grepper' "{{{
-  nmap gs <plug>(GrepperOperator)
-  xmap gs <plug>(GrepperOperator)
-  nnoremap <leader>g :Grepper -tool ag -grepprg ag --column --nogroup --hidden <cr>
 "}}}
 
 Plug 'easymotion/vim-easymotion' "{{{
@@ -215,6 +214,10 @@ Plug 'guns/vim-clojure-highlight' "{{{
 ""}}}
 Plug 'honza/dockerfile.vim'
 
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
+" Automatically treat .es6 extension files as javascript
+autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+
 " Colors
 Plug 'tomasr/molokai'
 call plug#end()
@@ -263,7 +266,6 @@ nmap <C-j> i<CR><ESC>
 " shortcuts for windows {{{
   nnoremap <leader>w/ <C-w>v<C-w>l
   nnoremap <leader>w- <C-w>s
-  nnoremap <leader>q :q<CR>
   nnoremap <m-h> <C-w>h
   nnoremap <m-j> <C-w>j
   nnoremap <m-k> <C-w>k
