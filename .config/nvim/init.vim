@@ -208,6 +208,9 @@ Plug 'bkad/CamelCaseMotion' "{{{
 	omap <silent> B <Plug>CamelCaseMotion_b
 "}}}
 
+Plug 'kana/vim-textobj-user'
+Plug 'rhysd/vim-textobj-anyblock'
+
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
   au BufNewFile,BufRead *.edn set filetype=clojure
