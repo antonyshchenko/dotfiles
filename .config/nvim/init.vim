@@ -218,6 +218,9 @@ Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Automatically treat .es6 extension files as javascript
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 
+Plug 'klen/python-mode', { 'for': 'python '}
+let g:pymode_rope = 1
+
 " Colors
 Plug 'tomasr/molokai'
 call plug#end()
