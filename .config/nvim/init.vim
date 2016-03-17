@@ -210,6 +210,10 @@ Plug 'bkad/CamelCaseMotion' "{{{
 
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
+Plug 'AndrewRadev/sideways.vim' "{{{
+  nnoremap H :SidewaysLeft<cr>
+  nnoremap L :SidewaysRight<cr>
+"}}}
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
