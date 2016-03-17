@@ -52,6 +52,9 @@ Plug 'Shougo/unite.vim' "{{{
     imap <silent><buffer><expr> <C-t>     unite#do_action('tabswitch')
   endfunction "}}}
 "}}}
+Plug 'Shougo/unite-outline' "{{{
+  nnoremap <silent> <leader>o :Unite -auto-resize -start-insert -silent -direction=botright outline<CR>
+"}}}
 
 Plug 'vim-airline/vim-airline' "{{{
   let g:airline#extensions#tabline#enabled = 1
