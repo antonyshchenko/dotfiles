@@ -215,6 +215,15 @@ Plug 'AndrewRadev/sideways.vim' "{{{
   nnoremap L :SidewaysRight<cr>
 "}}}
 
+Plug 'svermeulen/vim-easyclip' "{{{
+  let g:EasyClipUseSubstituteDefaults = 1
+  let g:EasyClipUseCutDefaults = 0
+
+  nmap x <Plug>MoveMotionPlug
+  xmap x <Plug>MoveMotionXPlug
+  nmap xx <Plug>MoveMotionLinePlug
+"}}}
+
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
   au BufNewFile,BufRead *.edn set filetype=clojure
