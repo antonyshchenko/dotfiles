@@ -32,6 +32,7 @@ Plug 'Shougo/unite.vim' "{{{
   let g:unite_source_grep_recursive_opt=''
 
   nnoremap <silent> <c-p> :Unite -auto-resize -start-insert -direction=botright buffer file_rec/async<CR>
+  nnoremap <silent> <leader>bb :Unite -auto-resize -start-insert -direction=botright buffer<CR>
 
 	" Open Unite with word under cursor or selection
 	nnoremap <silent> <Leader>f :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
@@ -55,7 +56,7 @@ Plug 'Shougo/unite.vim' "{{{
 Plug 'Shougo/unite-outline' "{{{
   nnoremap <silent> <leader>o :Unite -auto-resize -start-insert -silent -direction=botright outline<CR>
 "}}}
-
+Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
 Plug 'vim-airline/vim-airline' "{{{
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tagbar#enabled = 0
@@ -236,15 +237,17 @@ Plug 'honza/dockerfile.vim'
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Automatically treat .es6 extension files as javascript
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+Plug 'othree/html5.vim'
+Plug 'martin-svk/vim-yaml'
 
 Plug 'klen/python-mode', { 'for': 'python '}
 let g:pymode_rope = 1
 
 " Colors
-Plug 'tomasr/molokai'
+Plug 'nanotech/jellybeans.vim'
 call plug#end()
 
-colorscheme molokai
+colorscheme jellybeans
 highlight LineNr ctermbg=none
 set rnu
 set number
