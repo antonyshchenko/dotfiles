@@ -227,6 +227,13 @@ Plug 'svermeulen/vim-easyclip' "{{{
   xmap x <Plug>MoveMotionXPlug
   nmap xx <Plug>MoveMotionLinePlug
 "}}}
+Plug 'miyakogi/conoline.vim' "{{{
+  let g:conoline_color_normal_dark = 'ctermbg=234'
+  let g:conoline_color_normal_nr_dark = 'ctermbg=234'
+  let g:conoline_color_insert_dark = 'ctermbg=234'
+  let g:conoline_color_insert_nr_dark = 'ctermbg=234'
+  let g:conoline_auto_enable = 1
+"}}}
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
@@ -244,10 +251,13 @@ Plug 'klen/python-mode', { 'for': 'python '}
 let g:pymode_rope = 1
 
 " Colors
-Plug 'nanotech/jellybeans.vim'
+Plug 'w0ng/vim-hybrid'
 call plug#end()
 
-colorscheme jellybeans
+set background=dark
+let g:hybrid_custom_term_colors = 1
+colorscheme hybrid
+
 highlight LineNr ctermbg=none
 set rnu
 set number
