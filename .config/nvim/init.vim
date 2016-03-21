@@ -25,7 +25,7 @@ Plug 'Shougo/unite.vim' "{{{
   let g:unite_data_directory='~/.nvim/.cache/unite'
   let g:unite_source_history_yank_enable=1
   let g:unite_prompt='» '
-  let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g', '', '--ignore', '.git', '--ignore', '*.png', '--ignore', 'lib']
+  let g:unite_source_rec_async_command =['ag', '--follow', '--nocolor', '--nogroup','--hidden', '-g', '', '--ignore', '.git', '--ignore', '*.png']
 
   let g:unite_source_grep_command='ag'
   let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden -a -S'
