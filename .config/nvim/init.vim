@@ -257,6 +257,17 @@ Plug 'mhinz/vim-sayonara' "{{{
 Plug 'guns/vim-clojure-highlight' "{{{
   au BufNewFile,BufRead *.edn set filetype=clojure
 ""}}}
+Plug 'guns/vim-clojure-static'
+Plug 'luochen1990/rainbow' "{{{
+  let g:rainbow_active = 1
+  let g:rainbow_conf = {
+      \   'ctermfgs': ['white', 'blue', 'yellow', 'magenta'],
+      \   'operators': '_,_',
+      \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+      \}
+"}}}
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'honza/dockerfile.vim'
 
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
