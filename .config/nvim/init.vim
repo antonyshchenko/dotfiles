@@ -297,6 +297,8 @@ nnoremap <leader>sc :nohl<cr>
 nmap <CR> :a<CR><CR>.<CR>
 " C-j inserts new line at the current cursor position in normal mode
 nmap <C-j> i<CR><ESC>
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
 
 " shortcuts for windows {{{
   nnoremap <leader>w/ <C-w>v<C-w>l
