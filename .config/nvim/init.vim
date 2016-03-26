@@ -212,6 +212,12 @@ Plug 'haya14busa/incsearch.vim' "{{{
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 "}}}
+Plug 'osyo-manga/vim-over' "{{{
+  let g:over_enable_auto_nohlsearch = 1
+  let g:over#command_line#search#enable_incsearch = 1
+  cabbrev %s OverCommandLine<cr>%s
+  cabbrev '<,'>s '<,'>OverCommandLine<cr>s
+"}}}
 
 Plug 'bkad/CamelCaseMotion' "{{{
 	nmap <silent> e <Plug>CamelCaseMotion_e
