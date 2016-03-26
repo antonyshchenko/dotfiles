@@ -253,6 +253,7 @@ let g:pymode_rope = 1
 Plug 'w0ng/vim-hybrid'
 call plug#end()
 
+set t_ut= " improve screen clearing by using the background color
 set background=dark
 let g:hybrid_custom_term_colors = 1
 colorscheme hybrid
