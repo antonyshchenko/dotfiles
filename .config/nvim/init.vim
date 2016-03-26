@@ -38,7 +38,7 @@ Plug 'Shougo/unite.vim' "{{{
 
   nnoremap <silent><Leader>g :Unite -auto-resize -start-insert -silent -no-quit -direction=botright grep<CR>
   nnoremap <silent><Leader>G :UniteWithCursorWord -auto-resize -start-insert -silent -no-quit -direction=botright grep<CR>
-  nnoremap <leader>qu :UniteClose<CR>
+  nnoremap <leader>uq :UniteClose<CR>
 
   " Custom mappings for the unite buffer
   autocmd FileType unite call s:unite_settings()
@@ -110,6 +110,7 @@ Plug 'easymotion/vim-easymotion' "{{{
   nmap <Space> <Plug>(easymotion-overwin-f)
   let g:EasyMotion_smartcase = 1
 "}}}
+
 Plug 'scrooloose/nerdtree' "{{{
   noremap <leader>ft :NERDTreeToggle<CR>
   let g:NERDTreeAutoDeleteBuffer=1
@@ -226,12 +227,18 @@ Plug 'svermeulen/vim-easyclip' "{{{
   xmap x <Plug>MoveMotionXPlug
   nmap xx <Plug>MoveMotionLinePlug
 "}}}
+
 Plug 'miyakogi/conoline.vim' "{{{
   let g:conoline_color_normal_dark = 'ctermbg=234'
   let g:conoline_color_normal_nr_dark = 'ctermbg=234'
   let g:conoline_color_insert_dark = 'ctermbg=234'
   let g:conoline_color_insert_nr_dark = 'ctermbg=234'
   let g:conoline_auto_enable = 1
+"}}}
+
+Plug 'mhinz/vim-sayonara' "{{{
+  nnoremap <silent><leader>q  :Sayonara<cr>
+  nnoremap <silent><leader>Q  :Sayonara!<cr>
 "}}}
 
 " languages support
