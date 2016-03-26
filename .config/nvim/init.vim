@@ -36,8 +36,6 @@ Plug 'Shougo/unite.vim' "{{{
 	" Open Unite with word under cursor or selection
 	nnoremap <silent> <Leader>f :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
 
-  nnoremap <silent><Leader>g :Unite -auto-resize -start-insert -silent -no-quit -direction=botright grep<CR>
-  nnoremap <silent><Leader>G :UniteWithCursorWord -auto-resize -start-insert -silent -no-quit -direction=botright grep<CR>
   nnoremap <leader>uq :UniteClose<CR>
 
   " Custom mappings for the unite buffer
@@ -55,6 +53,19 @@ Plug 'Shougo/unite.vim' "{{{
 Plug 'Shougo/unite-outline' "{{{
   nnoremap <silent> <leader>o :Unite -auto-resize -start-insert -silent -direction=botright outline<CR>
 "}}}
+
+Plug 'mhinz/vim-grepper' "{{{
+  nnoremap <leader>g :Grepper -tool ag -cword<cr>
+  nnoremap <leader>G :Grepper -tool ag<cr>
+  nmap gs <plug>(GrepperOperator)
+  xmap gs <plug>(GrepperOperator)
+
+  let g:grepper = {
+        \ 'highlight': 0,
+        \ 'quickfix': 0,
+        \ }
+"}}}
+
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
 Plug 'vim-airline/vim-airline' "{{{
   let g:airline#extensions#tabline#enabled = 1
