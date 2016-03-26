@@ -11,7 +11,7 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch' "{{{
   nmap <leader>D :Remove
 "}}}
-Plug 'junegunn/fzf.vim' 
+Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
   map <leader><leader> :FZF<CR>
   nnoremap gb :Buffers<cr>
@@ -395,3 +395,12 @@ if exists("+undofile")
   set undodir+=~/.vim/undo//
   set undofile
 endif
+
+" Delete trailing whitespaces on file save
+func! DeleteTrailingWS()
+  exe "normal mz"
+  %s/\s\+$//ge
+  exe "normal `z"
+endfunc
+au BufWrite * silent call DeleteTrailingWS()
+
