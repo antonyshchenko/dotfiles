@@ -267,6 +267,9 @@ set tabstop=2
 set shiftwidth=2
 set expandtab smarttab
 
+" Start scrolling 5 lines before the border
+set scrolloff=5
+
 " case insensitive search
 set ignorecase
 set smartcase
