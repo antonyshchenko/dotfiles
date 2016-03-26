@@ -237,8 +237,9 @@ Plug 'miyakogi/conoline.vim' "{{{
 "}}}
 
 Plug 'mhinz/vim-sayonara' "{{{
-  nnoremap <silent><leader>q  :Sayonara<cr>
-  nnoremap <silent><leader>Q  :Sayonara!<cr>
+  nnoremap <silent><leader>q  :Sayonara<cr> " kill current buffer and close the window
+  nnoremap <silent><leader>wc  :q<cr> " close current window but keep the buffer
+  nnoremap <silent><leader>bk  :Sayonara!<cr> " kill current buffer but keep the window
 "}}}
 
 " languages support
@@ -324,8 +325,6 @@ nnoremap J mzJ`z
   au WinEnter term://* startinsert
 "}}}
 
-" kill current buffer
-nnoremap <leader>bk :bd<CR>
 " kill current tab
 nnoremap <leader>tk :tabclose<CR>
 " new tab
