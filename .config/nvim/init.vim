@@ -15,9 +15,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
   map <leader><leader> :FZF<CR>
   nnoremap gb :Buffers<cr>
-  nnoremap <leader>l :BLines<cr>
-  nnoremap <leader>t :BTags<cr>
-  nnoremap <leader>T :Tags<cr>
+  " nnoremap <leader>l :BLines<cr>
+  " nnoremap <leader>t :BTags<cr>
+  " nnoremap <leader>T :Tags<cr>
 "}}}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim' "{{{
@@ -404,4 +404,10 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 au BufWrite * silent call DeleteTrailingWS()
+
+if has('nvim')
+  nnoremap <leader>T  :vsplit +terminal<cr>
+  tnoremap <esc>      <c-\><c-n>
+  autocmd BufEnter term://* startinsert
+endif
 
