@@ -368,6 +368,9 @@ nnoremap <leader>tn :tabnew<CR>
 " switch to alternate buffer
 map <leader><leader> :b#<CR>
 
+" Start substitute on current word under the cursor
+nnoremap <leader>ss :%s///gc<Left><Left><Left>
+
 " Zoom
 function! s:zoom()
   if winnr('$') > 1
