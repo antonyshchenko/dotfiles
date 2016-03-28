@@ -342,6 +342,10 @@ nmap <C-j> i<CR><ESC>
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
 
+" Move visual block
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " shortcuts for windows {{{
   nnoremap <leader>w/ <C-w>v<C-w>l
   nnoremap <leader>w- <C-w>s
