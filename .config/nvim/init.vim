@@ -13,7 +13,7 @@ Plug 'tpope/vim-eunuch' "{{{
 "}}}
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
-  map <leader><leader> :FZF<CR>
+  nnoremap <silent> <c-p> :FZF<CR>
   nnoremap gb :Buffers<cr>
   " nnoremap <leader>l :BLines<cr>
   " nnoremap <leader>t :BTags<cr>
@@ -30,13 +30,13 @@ Plug 'Shougo/unite.vim' "{{{
   let g:unite_source_grep_default_opts='--nocolor --nogroup --hidden -a -S'
   let g:unite_source_grep_recursive_opt=''
 
-  nnoremap <silent> <c-p> :Unite -auto-resize -start-insert -direction=botright buffer file_rec/async<CR>
-  nnoremap <silent> <leader>bb :Unite -auto-resize -start-insert -direction=botright buffer<CR>
+  " nnoremap <silent> <c-p> :Unite -auto-resize -start-insert -direction=botright buffer file_rec/async<CR>
+  " nnoremap <silent> <leader>bb :Unite -auto-resize -start-insert -direction=botright buffer<CR>
 
 	" Open Unite with word under cursor or selection
 	nnoremap <silent> <Leader>f :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
 
-  nnoremap <leader>uq :UniteClose<CR>
+  " nnoremap <leader>uq :UniteClose<CR>
 
   " Custom mappings for the unite buffer
   autocmd FileType unite call s:unite_settings()
@@ -361,6 +361,9 @@ nnoremap J mzJ`z
 nnoremap <leader>tk :tabclose<CR>
 " new tab
 nnoremap <leader>tn :tabnew<CR>
+
+" switch to alternate buffer
+map <leader><leader> :b#<CR>
 
 " Zoom
 function! s:zoom()
