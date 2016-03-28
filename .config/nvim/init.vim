@@ -18,6 +18,10 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
   " nnoremap <leader>l :BLines<cr>
   " nnoremap <leader>t :BTags<cr>
   " nnoremap <leader>T :Tags<cr>
+  let g:fzf_action = {
+        \ 'ctrl-t': 'tab split',
+        \ 'ctrl-s': 'split',
+        \ 'ctrl-v': 'vsplit' }
 "}}}
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim' "{{{
