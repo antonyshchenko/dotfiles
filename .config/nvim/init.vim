@@ -55,8 +55,8 @@ Plug 'Shougo/unite-outline' "{{{
 "}}}
 
 Plug 'mhinz/vim-grepper' "{{{
-  nnoremap <leader>g :Grepper -tool ag -cword<cr>
-  nnoremap <leader>G :Grepper -tool ag<cr>
+  nnoremap <leader>g :Grepper -tool ag -cword -grepprg ag --hidden --vimgrep<cr>
+  nnoremap <leader>G :Grepper -tool ag -grepprg ag --hidden --vimgrep<cr>
   nmap gs <plug>(GrepperOperator)
   xmap gs <plug>(GrepperOperator)
 
