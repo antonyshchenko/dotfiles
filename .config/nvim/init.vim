@@ -212,6 +212,10 @@ Plug 'haya14busa/incsearch.vim' "{{{
   map ?  <Plug>(incsearch-backward)
   map g/ <Plug>(incsearch-stay)
 "}}}
+Plug 'osyo-manga/vim-anzu' "{{{
+  map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)
+  map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)
+"}}}
 Plug 'osyo-manga/vim-over' "{{{
   let g:over_enable_auto_nohlsearch = 1
   let g:over#command_line#search#enable_incsearch = 1
