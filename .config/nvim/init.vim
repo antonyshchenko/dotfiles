@@ -64,6 +64,7 @@ Plug 'mhinz/vim-grepper' "{{{
         \ 'highlight': 0,
         \ 'quickfix': 0,
         \ }
+  nnoremap <leader>qg :lclose<CR>
 "}}}
 
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
@@ -258,7 +259,7 @@ Plug 'miyakogi/conoline.vim' "{{{
 "}}}
 
 Plug 'mhinz/vim-sayonara' "{{{
-  nnoremap <silent><leader>q  :Sayonara<cr> " kill current buffer and close the window
+  nnoremap <silent><leader>qq  :Sayonara<cr> " kill current buffer and close the window
   nnoremap <silent><leader>wc  :q<cr> " close current window but keep the buffer
   nnoremap <silent><leader>bk  :Sayonara!<cr> " kill current buffer but keep the window
 "}}}
