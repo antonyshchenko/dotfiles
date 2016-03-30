@@ -66,9 +66,8 @@ Plug 'mhinz/vim-grepper' "{{{
 
   let g:grepper = {
         \ 'highlight': 0,
-        \ 'quickfix': 0,
+        \ 'quickfix': 1,
         \ }
-  nnoremap <leader>qg :lclose<CR>
 "}}}
 
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
@@ -262,6 +261,15 @@ Plug 'mhinz/vim-sayonara' "{{{
   nnoremap <silent><leader>qq  :Sayonara<cr> " kill current buffer and close the window
   nnoremap <silent><leader>wc  :q<cr> " close current window but keep the buffer
   nnoremap <silent><leader>bk  :Sayonara!<cr> " kill current buffer but keep the window
+  nnoremap <silent><leader>ql :lclose<CR>
+  nnoremap <silent><leader>qc :cclose<CR>
+"}}}
+
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'benekastah/neomake' "{{{
+  let g:neomake_javascript_enabled_makers = ['eslint']
+  autocmd! BufWritePost,BufEnter * Neomake
 "}}}
 
 " languages support
@@ -277,13 +285,15 @@ Plug 'luochen1990/rainbow' "{{{
       \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
       \}
 "}}}
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'honza/dockerfile.vim'
 
 Plug 'othree/yajs.vim', { 'for': 'javascript' }
 " Automatically treat .es6 extension files as javascript
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
+Plug 'mxw/vim-jsx' "{{{
+  let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+"}}}
+
 Plug 'othree/html5.vim'
 Plug 'martin-svk/vim-yaml'
 
