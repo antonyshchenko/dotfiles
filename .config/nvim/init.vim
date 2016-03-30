@@ -154,22 +154,22 @@ Plug 'Shougo/deoplete.nvim' "{{{
   " 2. Otherwise, if within a snippet, jump to next input
   " 3. Otherwise, if preceding chars are whitespace, insert tab char
   " 4. Otherwise, start manual autocomplete
-  imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-    \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-    \ : (<SID>is_whitespace() ? "\<Tab>"
-    \ : deoplete#mappings#manual_complete()))
+  " imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+  "   \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+  "   \ : (<SID>is_whitespace() ? "\<Tab>"
+  "   \ : deoplete#mappings#manual_complete()))
 
-  smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
-    \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
-    \ : (<SID>is_whitespace() ? "\<Tab>"
-    \ : deoplete#mappings#manual_complete()))
+  " smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+  "   \ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+  "   \ : (<SID>is_whitespace() ? "\<Tab>"
+  "   \ : deoplete#mappings#manual_complete()))
 
-  inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<C-h>"
+  " inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<C-h>"
 
-  function! s:is_whitespace() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~? '\s'
-  endfunction "}}}
+  " function! s:is_whitespace() "{{{
+  "   let col = col('.') - 1
+  "   return !col || getline('.')[col - 1]  =~? '\s'
+  " endfunction "}}}
 "}}}
 
 Plug 't9md/vim-choosewin' "{{{
@@ -287,7 +287,8 @@ Plug 'luochen1990/rainbow' "{{{
 "}}}
 Plug 'honza/dockerfile.vim'
 
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
+" Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 " Automatically treat .es6 extension files as javascript
 autocmd BufRead,BufNewFile *.es6 setfiletype javascript
 Plug 'mxw/vim-jsx' "{{{
