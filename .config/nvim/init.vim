@@ -381,6 +381,8 @@ vnoremap K :m '<-2<CR>gv=gv
   au WinEnter term://* startinsert
 "}}}
 
+nnoremap Q @q " Use Q to execute default register
+
 " kill current tab
 nnoremap <leader>tk :tabclose<CR>
 " new tab
