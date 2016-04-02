@@ -222,11 +222,14 @@ Plug 'osyo-manga/vim-anzu' "{{{
   map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)
   map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)
 "}}}
+Plug 'tpope/vim-abolish'
 Plug 'osyo-manga/vim-over' "{{{
   let g:over_enable_auto_nohlsearch = 1
   let g:over#command_line#search#enable_incsearch = 1
   cabbrev %s OverCommandLine<cr>%s
   cabbrev '<,'>s '<,'>OverCommandLine<cr>s
+  cabbrev %S OverCommandLine<cr>%S
+  cabbrev '<,'>S '<,'>OverCommandLine<cr>S
 "}}}
 
 Plug 'bkad/CamelCaseMotion' "{{{
@@ -277,6 +280,7 @@ Plug 'benekastah/neomake' "{{{
   let g:neomake_javascript_enabled_makers = ['eslint']
   autocmd! BufWritePost,BufEnter * Neomake
 "}}}
+Plug 'tpope/vim-endwise'
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
@@ -306,6 +310,9 @@ Plug 'martin-svk/vim-yaml'
 
 Plug 'klen/python-mode', { 'for': 'python '}
 let g:pymode_rope = 1
+
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
 
 " Colors
 Plug 'w0ng/vim-hybrid'
