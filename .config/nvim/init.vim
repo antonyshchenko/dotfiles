@@ -281,6 +281,7 @@ Plug 'benekastah/neomake' "{{{
   autocmd! BufWritePost,BufEnter * Neomake
 "}}}
 Plug 'tpope/vim-endwise'
+Plug 'Konfekt/FastFold'
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
