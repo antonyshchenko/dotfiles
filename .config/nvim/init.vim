@@ -277,6 +277,7 @@ Plug 'tpope/vim-endwise'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-rsi'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'szw/vim-maximizer' " F3 to toggle pane maximizing
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
@@ -398,17 +399,6 @@ map <leader><leader> :b#<CR>
 
 " Start substitute on current word under the cursor
 nnoremap <leader>ss :%s///gc<Left><Left><Left>
-
-" Zoom
-function! s:zoom()
-  if winnr('$') > 1
-    tab split
-  elseif len(filter(map(range(tabpagenr('$')), 'tabpagebuflist(v:val + 1)'),
-                  \ 'index(v:val, '.bufnr('').') >= 0')) > 1
-    tabclose
-  endif
-endfunction
-nnoremap <silent> <leader>z :call <sid>zoom()<cr>
 
 " change vim cursor depending on the mode
 if has('nvim')
