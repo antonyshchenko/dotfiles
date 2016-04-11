@@ -232,16 +232,7 @@ Plug 'osyo-manga/vim-over' "{{{
   cabbrev '<,'>S '<,'>OverCommandLine<cr>S
 "}}}
 
-Plug 'bkad/CamelCaseMotion' "{{{
-	nmap <silent> e <Plug>CamelCaseMotion_e
-	nmap <silent> w <Plug>CamelCaseMotion_w
-	xmap <silent> w <Plug>CamelCaseMotion_w
-	omap <silent> W <Plug>CamelCaseMotion_w
-	nmap <silent> b <Plug>CamelCaseMotion_b
-	xmap <silent> b <Plug>CamelCaseMotion_b
-	omap <silent> B <Plug>CamelCaseMotion_b
-"}}}
-
+Plug 'chaoren/vim-wordmotion'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
 Plug 'AndrewRadev/sideways.vim' "{{{
