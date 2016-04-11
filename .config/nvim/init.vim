@@ -276,6 +276,7 @@ Plug 'benekastah/neomake' "{{{
 Plug 'tpope/vim-endwise'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-rsi'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
