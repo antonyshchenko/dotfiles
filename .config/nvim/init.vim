@@ -10,7 +10,9 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch' "{{{
   nmap <leader>D :Remove
+  nmap <leader>R :Move <c-r>%
 "}}}
+
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
   nnoremap <silent> <c-p> :FZF<CR>
