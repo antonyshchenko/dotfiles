@@ -277,7 +277,12 @@ Plug 'tpope/vim-endwise'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-rsi'
 Plug 'AndrewRadev/splitjoin.vim'
-Plug 'szw/vim-maximizer' " F3 to toggle pane maximizing
+Plug 'szw/vim-maximizer' "{{{
+  nmap <leader>wm :MaximizerToggle<CR>
+  nmap <leader>wo :on<CR>
+"}}}
+
+Plug 'artnez/vim-wipeout' " :Wipeout to delete all buffers that are not opened in windows or tabs
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
