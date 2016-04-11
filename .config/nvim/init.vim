@@ -327,6 +327,7 @@ set expandtab smarttab
 set splitbelow " Splitting a window will put the new window below the current
 set splitright " Splitting a window will put the new window right of the current
 set autoread
+set nofoldenable " disable folding by default
 
 " Start scrolling 5 lines before the border
 set scrolloff=5
