@@ -283,6 +283,7 @@ Plug 'szw/vim-maximizer' "{{{
 "}}}
 
 Plug 'artnez/vim-wipeout' " :Wipeout to delete all buffers that are not opened in windows or tabs
+Plug 'duggiefresh/vim-easydir' " automatically create directories on file save
 
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
