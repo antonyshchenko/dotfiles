@@ -310,7 +310,9 @@ Plug 'mxw/vim-jsx' "{{{
 Plug 'othree/html5.vim'
 Plug 'martin-svk/vim-yaml'
 
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' } "{{{
+  let g:jedi#goto_assignments_command = "gd"
+"}}}
 Plug 'zchee/deoplete-jedi', { 'for': 'python' } "{{{
   set completeopt-=preview " https://github.com/zchee/deoplete-jedi/issues/6
 "}}}
