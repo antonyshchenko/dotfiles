@@ -310,8 +310,10 @@ Plug 'mxw/vim-jsx' "{{{
 Plug 'othree/html5.vim'
 Plug 'martin-svk/vim-yaml'
 
-Plug 'klen/python-mode', { 'for': 'python '}
-let g:pymode_rope = 1
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' } "{{{
+  set completeopt-=preview " https://github.com/zchee/deoplete-jedi/issues/6
+"}}}
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
