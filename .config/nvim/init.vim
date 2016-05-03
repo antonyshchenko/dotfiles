@@ -269,10 +269,10 @@ Plug 'mhinz/vim-sayonara' "{{{
 
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'benekastah/neomake' "{{{
-  let g:neomake_javascript_enabled_makers = ['eslint']
-  autocmd! BufWritePost,BufEnter * Neomake
-"}}}
+"Plug 'benekastah/neomake' "{{{
+"  let g:neomake_javascript_enabled_makers = ['eslint']
+"  autocmd! BufWritePost,BufEnter * Neomake
+""}}}
 Plug 'tpope/vim-endwise'
 Plug 'Konfekt/FastFold'
 Plug 'tpope/vim-rsi'
@@ -320,6 +320,7 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' } "{{{
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'lambdatoast/elm.vim'
 
 " Colors
 Plug 'w0ng/vim-hybrid'
