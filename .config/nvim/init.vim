@@ -260,11 +260,15 @@ Plug 'miyakogi/conoline.vim' "{{{
 "}}}
 
 Plug 'mhinz/vim-sayonara' "{{{
-  nnoremap <silent><leader>qq  :Sayonara<cr> " kill current buffer and close the window
-  nnoremap <silent><leader>wc  :q<cr> " close current window but keep the buffer
+  nnoremap <silent><leader>kk :Sayonara<cr> " kill current buffer and close the window
+  nnoremap <silent><leader>wk  :q<cr> " close current window but keep the buffer
   nnoremap <silent><leader>bk  :Sayonara!<cr> " kill current buffer but keep the window
-  nnoremap <silent><leader>ql :lclose<CR>
-  nnoremap <silent><leader>qc :cclose<CR>
+  nnoremap <silent><leader>lk :lclose<CR>
+  nnoremap <silent><leader>qk :cclose<CR> :QuickFixClear<CR>
+"}}}
+Plug 'Valloric/ListToggle' "{{{
+  let g:lt_location_list_toggle_map = '<leader>lt'
+  let g:lt_quickfix_list_toggle_map = '<leader>qt'
 "}}}
 
 Plug 'guns/vim-sexp'
@@ -487,4 +491,16 @@ if has('nvim')
   tnoremap <esc>      <c-\><c-n>
   autocmd BufEnter term://* startinsert
 endif
+
+" set t_ts=^[]1;
+" set t_fs=^G
+" " Set the title of the Terminal to the currently open file
+" function! SetTerminalTitle()
+"     let titleString = expand('%:t')
+"     if len(titleString) > 0
+"         let &titlestring = expand('%:t')
+"         set title
+"     endif
+" endfunction
+" autocmd BufEnter * call SetTerminalTitle()
 
