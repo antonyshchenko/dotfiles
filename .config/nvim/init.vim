@@ -330,6 +330,7 @@ set t_ut= " improve screen clearing by using the background color
 set background=dark
 let g:hybrid_custom_term_colors = 1
 colorscheme hybrid
+hi def link rubySymbol			Keyword
 
 highlight LineNr ctermbg=none
 set rnu
