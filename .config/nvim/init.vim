@@ -300,6 +300,9 @@ Plug 'guns/vim-clojure-static'
 Plug 'luochen1990/rainbow' "{{{
   let g:rainbow_active = 1
   let g:rainbow_conf = {
+      \   'separately': {
+      \       'html': 0,
+      \   },
       \   'ctermfgs': ['white', 'blue', 'yellow', 'magenta'],
       \   'operators': '_,_',
       \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
