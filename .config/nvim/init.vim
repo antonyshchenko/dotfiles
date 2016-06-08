@@ -274,6 +274,10 @@ Plug 'Valloric/ListToggle' "{{{
   let g:lt_quickfix_list_toggle_map = '<leader>qt'
 "}}}
 
+Plug 'junegunn/vim-easy-align'
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 "Plug 'benekastah/neomake' "{{{
