@@ -319,6 +319,7 @@ Plug 'mxw/vim-jsx' "{{{
 "}}}
 
 Plug 'othree/html5.vim'
+Plug 'alvan/vim-closetag'
 Plug 'martin-svk/vim-yaml'
 
 Plug 'davidhalter/jedi-vim', { 'for': 'python' } "{{{
