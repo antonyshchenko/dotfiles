@@ -40,7 +40,7 @@ Plug 'Shougo/unite.vim' "{{{
   " nnoremap <silent> <leader>bb :Unite -auto-resize -start-insert -direction=botright buffer<CR>
 
 	" Open Unite with word under cursor or selection
-	nnoremap <silent> <Leader>f :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
+	"nnoremap <silent> <Leader>f :UniteWithCursorWord file_rec/async -profile-name=navigate<CR>
 
   " nnoremap <leader>uq :UniteClose<CR>
 
@@ -71,6 +71,7 @@ Plug 'mhinz/vim-grepper' "{{{
         \ 'quickfix': 1,
         \ }
 "}}}
+"Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
 Plug 'vim-airline/vim-airline' "{{{
@@ -257,6 +258,8 @@ Plug 'miyakogi/conoline.vim' "{{{
   let g:conoline_color_insert_dark = 'ctermbg=234'
   let g:conoline_color_insert_nr_dark = 'ctermbg=234'
   let g:conoline_auto_enable = 1
+  let g:conoline_use_colorscheme_default_normal=1
+  let g:conoline_use_colorscheme_default_insert=1
 "}}}
 
 Plug 'mhinz/vim-sayonara' "{{{
@@ -325,16 +328,27 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' } "{{{
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'lambdatoast/elm.vim'
+Plug 'elixir-lang/vim-elixir'
 
 " Colors
 Plug 'w0ng/vim-hybrid'
+Plug 'kabbamine/yowish.vim'
 call plug#end()
 
 set t_ut= " improve screen clearing by using the background color
-set background=dark
-let g:hybrid_custom_term_colors = 1
-colorscheme hybrid
-hi def link rubySymbol			Keyword
+
+"set background=dark
+" colorscheme hybrid
+
+colorscheme yowish
+hi Normal ctermbg=none
+" let g:hybrid_custom_term_colors = 1
+" override some colors
+" hi Normal ctermfg=255
+ hi rubyConstant ctermfg=45
+ hi elixirAlias ctermfg=45
+ hi elixirFunctionDeclaration ctermfg=222
+ hi Visual ctermbg=245
 
 highlight LineNr ctermbg=none
 set rnu
