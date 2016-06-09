@@ -349,12 +349,17 @@ set t_ut= " improve screen clearing by using the background color
 " colorscheme hybrid
 
 colorscheme yowish
-hi Normal ctermbg=none
 " let g:hybrid_custom_term_colors = 1
 " override some colors
-" hi Normal ctermfg=255
- hi rubyConstant ctermfg=45
- hi elixirAlias ctermfg=45
+ hi Normal ctermbg=none ctermfg=253
+ hi rubyConstant ctermfg=44
+ hi rubyDefine ctermfg=204
+ hi Define ctermfg=204
+ hi Include ctermfg=204
+ hi Constant ctermfg=75
+ hi clojureKeyword ctermfg=75
+ hi clojureFunc ctermfg=222
+ hi elixirAlias ctermfg=44
  hi elixirFunctionDeclaration ctermfg=222
  hi Visual ctermbg=245
 
