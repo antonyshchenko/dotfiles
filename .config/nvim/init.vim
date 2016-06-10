@@ -347,6 +347,13 @@ set t_ut= " improve screen clearing by using the background color
 
 "set background=dark
 " colorscheme hybrid
+let g:yowish = {}
+let g:yowish.colors = {
+            \   'lightGreen'        : ['#2acf2a', '42'],
+            \   'text'              : ['#cbcbcb', '254'],
+            \   'textDark'          : ['#bebebe', '253'],
+            \   'comment'           : ['#bebebe', '245'],
+            \ }
 
 colorscheme yowish
 " let g:hybrid_custom_term_colors = 1
@@ -362,6 +369,7 @@ colorscheme yowish
  hi elixirAlias ctermfg=44
  hi elixirFunctionDeclaration ctermfg=222
  hi Visual ctermbg=245
+ hi VertSplit ctermfg=245
 
 highlight LineNr ctermbg=none
 set rnu
