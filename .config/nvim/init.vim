@@ -436,6 +436,8 @@ vnoremap K :m '<-2<CR>gv=gv
   tnoremap <m-j> <C-\><C-n><C-w>j
   tnoremap <m-k> <C-\><C-n><C-w>k
   au WinEnter term://* startinsert
+  " kind of a zoom - open current window in a new tab
+  nnoremap <leader>z :tabnew %<CR>
 "}}}
 
 nnoremap Q @q " Use Q to execute default register
