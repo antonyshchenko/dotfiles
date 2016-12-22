@@ -529,15 +529,4 @@ if has('nvim')
   autocmd BufEnter term://* startinsert
 endif
 
-" set t_ts=^[]1;
-" set t_fs=^G
-" " Set the title of the Terminal to the currently open file
-" function! SetTerminalTitle()
-"     let titleString = expand('%:t')
-"     if len(titleString) > 0
-"         let &titlestring = expand('%:t')
-"         set title
-"     endif
-" endfunction
-" autocmd BufEnter * call SetTerminalTitle()
-
+set title
