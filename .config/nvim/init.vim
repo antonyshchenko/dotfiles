@@ -306,6 +306,7 @@ Plug 'luochen1990/rainbow' "{{{
   let g:rainbow_conf = {
       \   'separately': {
       \       'html': 0,
+      \       'php': 0,
       \   },
       \   'ctermfgs': ['white', 'blue', 'yellow', 'magenta'],
       \   'operators': '_,_',
@@ -415,6 +416,9 @@ nnoremap <leader>sc :nohl<cr>
 
 " Enter adds new line beneath current line in normal mode
 nmap <CR> :a<CR><CR>.<CR>
+" Kepp original CR behavior in quickfix buffers
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
 " C-j inserts new line at the current cursor position in normal mode
 nmap <C-j> i<CR><ESC>
 " Keep the cursor in place while joining lines
@@ -529,4 +533,3 @@ if has('nvim')
   autocmd BufEnter term://* startinsert
 endif
 
-set title
