@@ -382,7 +382,7 @@ colorscheme yowish
  hi clojureFunc ctermfg=222
  hi elixirAlias ctermfg=44
  hi elixirFunctionDeclaration ctermfg=222
- hi Visual ctermbg=245
+ hi Visual ctermbg=238
  hi VertSplit ctermfg=245
 
 highlight LineNr ctermbg=none
