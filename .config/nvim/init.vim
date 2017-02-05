@@ -381,7 +381,7 @@ colorscheme yowish
  hi Constant ctermfg=75
  hi clojureKeyword ctermfg=75
  hi clojureFunc ctermfg=222
- hi elixirAlias ctermfg=44
+ hi elixirAlias ctermfg=37
  hi elixirFunctionDeclaration ctermfg=222
  hi Visual ctermbg=238
  hi VertSplit ctermfg=245
