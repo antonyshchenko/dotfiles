@@ -338,19 +338,20 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
 Plug 'lambdatoast/elm.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 Plug 'derekwyatt/vim-scala'
-let g:deoplete#tag#cache_limit_size = 5000000
-Plug 'ensime/ensime-vim' "{{{
-  au FileType scala nnoremap gdd :EnDeclaration<CR>
-  au FileType scala nnoremap gds :EnDeclarationSplit<CR>
-  au FileType scala nnoremap gdv :EnDeclarationSplit v<CR>
-  autocmd BufWritePost *.scala :EnTypeCheck
-  let g:deoplete#sources={}
-  let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips']
-  let g:deoplete#omni_patterns={}
-  let g:deoplete#omni_patterns.scala='[^. *\t]\.\w*'
-""}}}
+"let g:deoplete#tag#cache_limit_size = 5000000
+"Plug 'ensime/ensime-vim' "{{{
+"  au FileType scala nnoremap gdd :EnDeclaration<CR>
+"  au FileType scala nnoremap gds :EnDeclarationSplit<CR>
+"  au FileType scala nnoremap gdv :EnDeclarationSplit v<CR>
+"  autocmd BufWritePost *.scala :EnTypeCheck
+"  let g:deoplete#sources={}
+"  let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips']
+"  let g:deoplete#omni_patterns={}
+"  let g:deoplete#omni_patterns.scala='[^. *\t]\.\w*'
+"""}}}
 
 " Colors
 Plug 'w0ng/vim-hybrid'
