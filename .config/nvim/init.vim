@@ -71,7 +71,8 @@ Plug 'mhinz/vim-grepper' "{{{
         \ 'quickfix': 1,
         \ }
 "}}}
-"Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
+let g:gutentags_ctags_exclude = ['*node_modules*', '*bower_components*', 'tmp*', 'temp*', '*build-artifacts*']
 
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
 Plug 'vim-airline/vim-airline' "{{{
@@ -137,6 +138,7 @@ Plug 'scrooloose/nerdtree' "{{{
 
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#tag#cache_limit_size = 50000000 " for tags file siae > 50MB
   set completeopt+=noinsert,noselect
 
   " Movement within 'ins-completion-menu'
@@ -352,7 +354,6 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
 Plug 'derekwyatt/vim-scala'
-"let g:deoplete#tag#cache_limit_size = 5000000
 "Plug 'ensime/ensime-vim' "{{{
 "  au FileType scala nnoremap gdd :EnDeclaration<CR>
 "  au FileType scala nnoremap gds :EnDeclarationSplit<CR>
