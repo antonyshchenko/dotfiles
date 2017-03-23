@@ -135,7 +135,7 @@ Plug 'scrooloose/nerdtree' "{{{
   let g:NERDTreeShowHidden=1
 "}}}
 
-Plug 'Shougo/deoplete.nvim' "{{{
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
   let g:deoplete#enable_at_startup = 1
   set completeopt+=noinsert,noselect
 
@@ -336,7 +336,18 @@ Plug 'zchee/deoplete-jedi', { 'for': 'python' } "{{{
 
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
-Plug 'lambdatoast/elm.vim'
+
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
+Plug 'pbogut/deoplete-elm', { 'for': 'elm' }
+let g:elm_format_autosave = 1
+let g:elm_detailed_complete = 1
+augroup elm
+  autocmd!
+  autocmd BufNewFile,BufRead *.elm setlocal tabstop=4
+  autocmd BufNewFile,BufRead *.elm setlocal shiftwidth=4
+  autocmd BufNewFile,BufRead *.elm setlocal softtabstop=4
+augroup END
+
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
