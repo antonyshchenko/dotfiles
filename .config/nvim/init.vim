@@ -15,7 +15,7 @@ Plug 'tpope/vim-eunuch' "{{{
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
-  nnoremap <silent> <c-p> :FZF<CR>
+  nnoremap <silent> <c-p> :Files<CR>
   nnoremap gb :Buffers<cr>
   " nnoremap <leader>l :BLines<cr>
   " nnoremap <leader>t :BTags<cr>
@@ -24,7 +24,19 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install --all' } "{{{
         \ 'ctrl-t': 'tab split',
         \ 'ctrl-s': 'split',
         \ 'ctrl-v': 'vsplit' }
+
+  autocmd FileType fzf :tnoremap <buffer> <C-J> <C-J>
+  autocmd FileType fzf :tnoremap <buffer> <C-K> <C-K>
+  command! -bang -nargs=* Ag
+        \ call fzf#vim#ag(<q-args>,
+        \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+        \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+        \                 <bang>0)
+
+  command! -bang -nargs=? -complete=dir Files
+        \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 "}}}
+
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/unite.vim' "{{{
   let g:unite_data_directory='~/.nvim/.cache/unite'
