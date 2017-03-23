@@ -269,12 +269,12 @@ Plug 'mhinz/vim-sayonara' "{{{
   nnoremap <silent><leader>kk :Sayonara<cr> " kill current buffer and close the window
   nnoremap <silent><leader>wk  :q<cr> " close current window but keep the buffer
   nnoremap <silent><leader>bk  :Sayonara!<cr> " kill current buffer but keep the window
-  nnoremap <silent><leader>lk :lclose<CR>
-  nnoremap <silent><leader>qk :cclose<CR> :QuickFixClear<CR>
+  " nnoremap <silent><leader>lk :lclose<CR>
+  " nnoremap <silent><leader>qk :cclose<CR> :QuickFixClear<CR>
 "}}}
 Plug 'Valloric/ListToggle' "{{{
-  let g:lt_location_list_toggle_map = '<leader>lt'
-  let g:lt_quickfix_list_toggle_map = '<leader>qt'
+  let g:lt_location_list_toggle_map = '<leader>l'
+  let g:lt_quickfix_list_toggle_map = '<leader>q'
 "}}}
 
 Plug 'junegunn/vim-easy-align'
