@@ -240,6 +240,7 @@ Plug 'osyo-manga/vim-over' "{{{
 Plug 'chaoren/vim-wordmotion'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
+Plug 'andyl/vim-textobj-elixir'
 Plug 'AndrewRadev/sideways.vim' "{{{
   nnoremap H :SidewaysLeft<cr>
   nnoremap L :SidewaysRight<cr>
