@@ -311,6 +311,30 @@ Plug 'szw/vim-maximizer' "{{{
 Plug 'artnez/vim-wipeout' " :Wipeout to delete all buffers that are not opened in windows or tabs
 Plug 'duggiefresh/vim-easydir' " automatically create directories on file save
 
+" tmux integration
+Plug 'christoomey/vim-tmux-navigator'
+let g:tmux_navigator_no_mappings = 1
+nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <m-\> :TmuxNavigatePrevious<cr>
+tnoremap <silent> <m-h> <C-\><C-n>:TmuxNavigateLeft<cr>
+tnoremap <silent> <m-j> <C-\><C-n>:TmuxNavigateDown<cr>
+tnoremap <silent> <m-k> <C-\><C-n>:TmuxNavigateUp<cr>
+tnoremap <silent> <m-l> <C-\><C-n>:TmuxNavigateRight<cr>
+tnoremap <silent> <m-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
+
+Plug 'tpope/vim-dispatch'
+
+Plug 'janko-m/vim-test'
+let test#strategy = "dispatch"
+nmap <silent> <leader>tl :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>ta :TestSuite<CR>
+nmap <silent> <leader>tt :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
+
 " languages support
 Plug 'guns/vim-clojure-highlight' "{{{
   au BufNewFile,BufRead *.edn set filetype=clojure
@@ -470,14 +494,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " shortcuts for windows {{{
   nnoremap <leader>w/ <C-w>v<C-w>l
   nnoremap <leader>w- <C-w>s
-  nnoremap <m-h> <C-w>h
-  nnoremap <m-j> <C-w>j
-  nnoremap <m-k> <C-w>k
-  nnoremap <m-l> <C-w>l
-  tnoremap <m-h> <C-\><C-n><C-w>h
-  tnoremap <m-l> <C-\><C-n><C-w>l
-  tnoremap <m-j> <C-\><C-n><C-w>j
-  tnoremap <m-k> <C-\><C-n><C-w>k
   au WinEnter term://* startinsert
   " kind of a zoom - open current window in a new tab
   nnoremap <leader>z :tabnew %<CR>
