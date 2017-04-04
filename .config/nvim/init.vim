@@ -406,7 +406,7 @@ let g:yowish.colors = {
             \   'lightGreen'        : ['#22d184', '42'],
             \   'text'              : ['#cbcbcb', '254'],
             \   'textDark'          : ['#bebebe', '253'],
-            \   'comment'           : ['#bebebe', '245'],
+            \   'comment'           : ['#8a8a8a', '245'],
             \ }
 
 colorscheme yowish
