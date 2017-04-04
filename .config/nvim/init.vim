@@ -240,14 +240,6 @@ Plug 'osyo-manga/vim-anzu' "{{{
   map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)
 "}}}
 Plug 'tpope/vim-abolish'
-Plug 'osyo-manga/vim-over' "{{{
-  let g:over_enable_auto_nohlsearch = 1
-  let g:over#command_line#search#enable_incsearch = 1
-  cabbrev %s OverCommandLine<cr>%s
-  cabbrev '<,'>s '<,'>OverCommandLine<cr>s
-  cabbrev %S OverCommandLine<cr>%S
-  cabbrev '<,'>S '<,'>OverCommandLine<cr>S
-"}}}
 
 Plug 'chaoren/vim-wordmotion'
 Plug 'kana/vim-textobj-user'
@@ -471,6 +463,9 @@ set scrolloff=5
 " case insensitive search
 set ignorecase
 set smartcase
+
+" preview substitute command effect
+set inccommand=split
 
 " Switch between buffers without saving
 set hidden
