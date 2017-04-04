@@ -267,16 +267,6 @@ Plug 'svermeulen/vim-easyclip' "{{{
   nmap xx <Plug>MoveMotionLinePlug
 "}}}
 
-Plug 'miyakogi/conoline.vim' "{{{
-  let g:conoline_color_normal_dark = 'ctermbg=234'
-  let g:conoline_color_normal_nr_dark = 'ctermbg=234'
-  let g:conoline_color_insert_dark = 'ctermbg=234'
-  let g:conoline_color_insert_nr_dark = 'ctermbg=234'
-  let g:conoline_auto_enable = 1
-  let g:conoline_use_colorscheme_default_normal=1
-  let g:conoline_use_colorscheme_default_insert=1
-"}}}
-
 Plug 'mhinz/vim-sayonara' "{{{
   nnoremap <silent><leader>kk :Sayonara<cr> " kill current buffer and close the window
   nnoremap <silent><leader>wk  :q<cr> " close current window but keep the buffer
@@ -325,14 +315,16 @@ tnoremap <silent> <m-k> <C-\><C-n>:TmuxNavigateUp<cr>
 tnoremap <silent> <m-l> <C-\><C-n>:TmuxNavigateRight<cr>
 tnoremap <silent> <m-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
 
-Plug 'tpope/vim-dispatch'
+Plug 'kassio/neoterm'
+nnoremap <silent> ,tt :call neoterm#toggle()<cr>
+tnoremap <esc> <c-\><c-n>
 
 Plug 'janko-m/vim-test'
-let test#strategy = "dispatch"
-nmap <silent> <leader>tl :TestNearest<CR>
+let test#strategy = "neoterm"
+nmap <silent> <leader>tc :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>ta :TestSuite<CR>
-nmap <silent> <leader>tt :TestLast<CR>
+nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 
 " languages support
@@ -436,6 +428,10 @@ colorscheme yowish
  hi VertSplit ctermfg=245
 
 highlight LineNr ctermbg=none
+
+set cursorline " highlight current line
+autocmd TermOpen * setlocal listchars= | set nocursorline | set nocursorcolumn " disable current line highlighting in terminal buffer
+
 set rnu
 set number
 set numberwidth=3
@@ -494,7 +490,6 @@ vnoremap K :m '<-2<CR>gv=gv
 " shortcuts for windows {{{
   nnoremap <leader>w/ <C-w>v<C-w>l
   nnoremap <leader>w- <C-w>s
-  au WinEnter term://* startinsert
   " kind of a zoom - open current window in a new tab
   nnoremap <leader>z :tabnew %<CR>
 "}}}
@@ -581,10 +576,4 @@ func! DeleteTrailingWS()
   exe "normal `z"
 endfunc
 au BufWrite * silent call DeleteTrailingWS()
-
-if has('nvim')
-  nnoremap <leader>T  :vsplit +terminal<cr>
-  tnoremap <esc>      <c-\><c-n>
-  autocmd BufEnter term://* startinsert
-endif
 
