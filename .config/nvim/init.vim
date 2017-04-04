@@ -301,6 +301,10 @@ Plug 'szw/vim-maximizer' "{{{
 Plug 'artnez/vim-wipeout' " :Wipeout to delete all buffers that are not opened in windows or tabs
 Plug 'duggiefresh/vim-easydir' " automatically create directories on file save
 
+" git management plugin
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
 " tmux integration
 Plug 'christoomey/vim-tmux-navigator'
 let g:tmux_navigator_no_mappings = 1
