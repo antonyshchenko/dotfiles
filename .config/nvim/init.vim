@@ -343,7 +343,7 @@ Plug 'luochen1990/rainbow' "{{{
       \       'html': 0,
       \       'php': 0,
       \   },
-      \   'ctermfgs': ['white', 'blue', 'yellow', 'magenta'],
+      \   'guifgs': ['#cbcbcb', '#0087ff', '#d7d75f'],
       \   'operators': '_,_',
       \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
       \}
@@ -398,39 +398,55 @@ Plug 'derekwyatt/vim-scala'
 "  let g:deoplete#omni_patterns.scala='[^. *\t]\.\w*'
 """}}}
 
+
 " Colors
-Plug 'w0ng/vim-hybrid'
+if (has("termguicolors"))
+  set termguicolors
+endif
+
 Plug 'kabbamine/yowish.vim'
 call plug#end()
 
 set t_ut= " improve screen clearing by using the background color
 
-"set background=dark
-" colorscheme hybrid
 let g:yowish = {}
 let g:yowish.colors = {
-            \   'lightGreen'        : ['#2acf2a', '42'],
+            \   'lightGreen'        : ['#22d184', '42'],
             \   'text'              : ['#cbcbcb', '254'],
             \   'textDark'          : ['#bebebe', '253'],
             \   'comment'           : ['#bebebe', '245'],
             \ }
 
 colorscheme yowish
-" let g:hybrid_custom_term_colors = 1
 " override some colors
- hi Normal ctermbg=none ctermfg=253
- hi rubyConstant ctermfg=44
- hi rubyDefine ctermfg=204
- hi Define ctermfg=204
- hi Include ctermfg=204
- hi Constant ctermfg=75
- hi clojureKeyword ctermfg=75
- hi clojureFunc ctermfg=222
- hi elixirAlias ctermfg=37
- hi elixirFunctionDeclaration ctermfg=222
- hi Visual ctermbg=238
- hi VertSplit ctermfg=245
-
+ hi Normal guibg=none guifg=#dadada
+ hi rubyConstant guifg=#00d7d7
+ hi rubyDefine guifg=#ff5f87
+ hi Define guifg=#ff5f87
+ hi Include guifg=#ff5f87
+ hi Constant guifg=#5fafff
+ hi clojureKeyword guifg=#5fafff
+ hi clojureFunc guifg=#ffd787
+ hi elixirAlias guifg=#00afaf
+ hi elixirFunctionDeclaration guifg=#ffd787
+ hi Visual guibg=#444444
+ hi VertSplit guifg=#8a8a8a
+let g:terminal_color_0 = "#171717"
+let g:terminal_color_1 = "#fe4386"
+let g:terminal_color_2 = "#a6e32d"
+let g:terminal_color_3 = "#e6da73"
+let g:terminal_color_4 = "#0094d9"
+let g:terminal_color_5 = "#9b37ff"
+let g:terminal_color_6 = "#50b7d9"
+let g:terminal_color_7 = "#c7c7c7"
+let g:terminal_color_8 = "#686868"
+let g:terminal_color_9 = "#fa80ac"
+let g:terminal_color_10 = "#bde371"
+let g:terminal_color_11 = "#fff27f"
+let g:terminal_color_12 = "#00beff"
+let g:terminal_color_13 = "#be9eff"
+let g:terminal_color_14 = "#5ed7ff"
+let g:terminal_color_15 = "#ffffff"
 highlight LineNr ctermbg=none
 
 set cursorline " highlight current line
