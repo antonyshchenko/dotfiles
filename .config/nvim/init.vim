@@ -87,6 +87,7 @@ Plug 'ludovicchabant/vim-gutentags'
 let g:gutentags_ctags_exclude = ['*node_modules*', '*bower_components*', 'tmp*', 'temp*', '*build-artifacts*']
 
 Plug 'dyng/ctrlsf.vim', { 'on': ['CtrlSF', 'CtrlSFToggle'] }
+
 Plug 'vim-airline/vim-airline' "{{{
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tagbar#enabled = 0
@@ -128,7 +129,7 @@ Plug 'vim-airline/vim-airline' "{{{
       \ }
 "}}}
 Plug 'vim-airline/vim-airline-themes' "{{{
-  let g:airline_theme = 'simple'
+  let g:airline_theme = 'base16_spacemacs'
 "}}}
 Plug 'gcmt/taboo.vim' "{{{
   set sessionoptions+=tabpages,globals
@@ -450,6 +451,11 @@ highlight LineNr ctermbg=none
 
 set cursorline " highlight current line
 autocmd TermOpen * setlocal listchars= | set nocursorline | set nocursorcolumn " disable current line highlighting in terminal buffer
+augroup CursorLineOnlyInActiveWindow
+  autocmd!
+  autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  autocmd WinLeave * setlocal nocursorline
+augroup END
 
 set rnu
 set number
