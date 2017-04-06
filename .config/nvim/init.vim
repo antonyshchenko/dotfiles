@@ -130,6 +130,15 @@ Plug 'vim-airline/vim-airline' "{{{
 "}}}
 Plug 'vim-airline/vim-airline-themes' "{{{
   let g:airline_theme = 'base16_spacemacs'
+  let s:guiGray = "#666666"
+  let s:guiAlmostBlack = "#2a2a2a"
+  let s:ctermGray = "243"
+  let s:ctermAlmostBlack = "235"
+  let s:IN1 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
+  let s:IN2 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
+  let s:IN3 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
+  let g:airline#themes#base16_spacemacs#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
+
 "}}}
 Plug 'gcmt/taboo.vim' "{{{
   set sessionoptions+=tabpages,globals
@@ -405,6 +414,7 @@ if (has("termguicolors"))
 endif
 
 Plug 'kabbamine/yowish.vim'
+Plug 'danilo-augusto/vim-afterglow'
 call plug#end()
 
 set t_ut= " improve screen clearing by using the background color
