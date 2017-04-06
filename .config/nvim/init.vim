@@ -73,8 +73,8 @@ Plug 'Shougo/unite-outline' "{{{
 "}}}
 
 Plug 'mhinz/vim-grepper' "{{{
-  nnoremap <leader>g :Grepper -tool ag -cword -grepprg ag --hidden --vimgrep<cr>
-  nnoremap <leader>G :Grepper -tool ag -grepprg ag --hidden --vimgrep<cr>
+  nnoremap <leader>* :Grepper -tool ag -cword -grepprg ag --hidden --vimgrep<cr>
+  nnoremap <leader>/ :Grepper -tool ag -grepprg ag --hidden --vimgrep<cr>
   nmap gs <plug>(GrepperOperator)
   xmap gs <plug>(GrepperOperator)
 
@@ -295,6 +295,13 @@ Plug 'duggiefresh/vim-easydir' " automatically create directories on file save
 
 " git management plugin
 Plug 'tpope/vim-fugitive'
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gpp :Gpush<CR>
+nnoremap <leader>gpl :Gpull<CR>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gd :Gdiff<CR>
+
 Plug 'airblade/vim-gitgutter'
 
 " tmux integration
