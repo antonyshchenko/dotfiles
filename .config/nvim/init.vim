@@ -137,7 +137,7 @@ Plug 'vim-airline/vim-airline-themes' "{{{
   let s:IN1 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
   let s:IN2 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
   let s:IN3 = [s:guiGray, s:guiAlmostBlack, s:ctermGray, s:ctermAlmostBlack]
-  let g:airline#themes#base16_spacemacs#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
+  autocmd VimEnter * let g:airline#themes#base16_spacemacs#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
 
 "}}}
 Plug 'gcmt/taboo.vim' "{{{
