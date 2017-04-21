@@ -429,7 +429,7 @@ let g:yowish.colors = {
 
 colorscheme yowish
 " override some colors
- hi Normal guibg=none guifg=#dadada
+ hi Normal guibg=#141414 guifg=#dadada
  hi rubyConstant guifg=#00d7d7
  hi rubyDefine guifg=#ff5f87
  hi Define guifg=#ff5f87
