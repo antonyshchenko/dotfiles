@@ -316,17 +316,30 @@ Plug 'airblade/vim-gitgutter'
 
 " tmux integration
 Plug 'christoomey/vim-tmux-navigator'
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
-nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
-nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
-nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
-nnoremap <silent> <m-\> :TmuxNavigatePrevious<cr>
-tnoremap <silent> <m-h> <C-\><C-n>:TmuxNavigateLeft<cr>
-tnoremap <silent> <m-j> <C-\><C-n>:TmuxNavigateDown<cr>
-tnoremap <silent> <m-k> <C-\><C-n>:TmuxNavigateUp<cr>
-tnoremap <silent> <m-l> <C-\><C-n>:TmuxNavigateRight<cr>
-tnoremap <silent> <m-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
+" let g:tmux_navigator_no_mappings = 1
+" use standard vim mappings for window navigation for now, because VimR does
+" not support meta-key bindings
+" if has("gui_vimr")
+"   nnoremap <m-h> <C-w>h
+"   nnoremap <m-j> <C-w>j
+"   nnoremap <m-k> <C-w>k
+"   nnoremap <m-l> <C-w>l
+"   tnoremap <m-h> <C-\><C-n><C-w>h
+"   tnoremap <m-l> <C-\><C-n><C-w>l
+"   tnoremap <m-j> <C-\><C-n><C-w>j
+"   tnoremap <m-k> <C-\><C-n><C-w>k
+" else
+"   nnoremap <silent> <m-h> :TmuxNavigateLeft<cr>
+"   nnoremap <silent> <m-j> :TmuxNavigateDown<cr>
+"   nnoremap <silent> <m-k> :TmuxNavigateUp<cr>
+"   nnoremap <silent> <m-l> :TmuxNavigateRight<cr>
+"   nnoremap <silent> <m-\> :TmuxNavigatePrevious<cr>
+"   tnoremap <silent> <m-h> <C-\><C-n>:TmuxNavigateLeft<cr>
+"   tnoremap <silent> <m-j> <C-\><C-n>:TmuxNavigateDown<cr>
+"   tnoremap <silent> <m-k> <C-\><C-n>:TmuxNavigateUp<cr>
+"   tnoremap <silent> <m-l> <C-\><C-n>:TmuxNavigateRight<cr>
+"   tnoremap <silent> <m-\> <C-\><C-n>:TmuxNavigatePrevious<cr>
+" endif
 
 Plug 'kassio/neoterm'
 nnoremap <silent> ,tt :call neoterm#toggle()<cr>
@@ -525,19 +538,15 @@ nnoremap J mzJ`z
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
-" shortcuts for windows {{{
-  nnoremap <leader>w/ <C-w>v<C-w>l
-  nnoremap <leader>w- <C-w>s
-  " kind of a zoom - open current window in a new tab
-  nnoremap <leader>z :tabnew %<CR>
-"}}}
-
 nnoremap Q @q " Use Q to execute default register
 
 " kill current tab
 nnoremap <leader>tk :tabclose<CR>
 " new tab
 nnoremap <leader>tn :tabnew<CR>
+
+" kind of a zoom - open current window in a new tab
+nnoremap <leader>z :tabnew %<CR>
 
 " switch to alternate buffer
 map <leader><leader> :b#<CR>
