@@ -249,12 +249,6 @@ Plug 'osyo-manga/vim-anzu' "{{{
   map n <Plug>(incsearch-nohl)<Plug>(anzu-n-with-echo)
   map N <Plug>(incsearch-nohl)<Plug>(anzu-N-with-echo)
 "}}}
-
-Plug 'dominikduda/vim_current_word'
-let g:vim_current_word#enabled = 1
-let g:vim_current_word#highlight_twins = 1
-let g:vim_current_word#highlight_current_word = 0
-
 Plug 'tpope/vim-abolish'
 
 Plug 'chaoren/vim-wordmotion'
