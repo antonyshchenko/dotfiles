@@ -162,6 +162,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } "{{{
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#tag#cache_limit_size = 50000000 " for tags file siae > 50MB
   set completeopt+=noinsert,noselect
+  let g:deoplete#sources={}
+  let g:deoplete#omni#input_patterns={}
 
   " Movement within 'ins-completion-menu'
   imap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
@@ -408,17 +410,15 @@ augroup END
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
+
 Plug 'derekwyatt/vim-scala'
-"Plug 'ensime/ensime-vim' "{{{
-"  au FileType scala nnoremap gdd :EnDeclaration<CR>
-"  au FileType scala nnoremap gds :EnDeclarationSplit<CR>
-"  au FileType scala nnoremap gdv :EnDeclarationSplit v<CR>
-"  autocmd BufWritePost *.scala :EnTypeCheck
-"  let g:deoplete#sources={}
-"  let g:deoplete#sources._=['buffer', 'member', 'tag', 'file', 'omni', 'ultisnips']
-"  let g:deoplete#omni_patterns={}
-"  let g:deoplete#omni_patterns.scala='[^. *\t]\.\w*'
-"""}}}
+Plug 'ensime/ensime-vim'
+let ensime_server_v2=1
+let g:deoplete#sources.scala = ['buffer', 'omni', 'tag']
+let g:deoplete#omni#input_patterns.scala = [ '^import .*', '[^. *\t]\.\w*', '^ *[^ ][a-zA-Z]{1,100}', '\( *_.' ]
+au FileType scala nnoremap <C-]> :EnDeclaration<CR>
+au FileType scala nnoremap <M-]> :EnDeclarationSplit v<CR>
+autocmd BufWritePost *.scala :EnTypeCheck
 
 
 " Colors
