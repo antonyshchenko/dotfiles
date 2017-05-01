@@ -1,0 +1,72 @@
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'w': 'vim-mode-plus:move-to-next-subword'
+  'b': 'vim-mode-plus:move-to-previous-subword'
+  'e': 'vim-mode-plus:move-to-end-of-subword'
+  'x': 'vim-mode-plus:delete'
+  'd': 'vim-mode-plus-user:delete-with-backhole-register'
+  'g c': 'vim-mode-plus:toggle-line-comments'
+  'g b': 'fuzzy-finder:toggle-buffer-finder'
+  'g ;': 'goto-last-edit:back'
+  'g ,': 'goto-last-edit:forward'
+  'space': 'jumpy:toggle'
+  'alt-h': 'window:focus-pane-on-left'
+  'alt-l': 'window:focus-pane-on-right'
+  'alt-j': 'window:focus-pane-below'
+  'alt-k': 'window:focus-pane-above'
+  's': 'vim-mode-plus:replace-with-register'
+
+'atom-text-editor.vim-mode-plus:not(.insert-mode)[data-grammar="source elixir"]':
+  'ctrl-]': 'atom-elixir:goto-definition'
+  'ctrl-t': 'atom-elixir:return-from-definition'
+
+'atom-text-editor.vim-mode-plus.insert-mode:not(.autocomplete-active)':
+  'ctrl-j': 'vim-mode-plus-user:insert-newline-at-point'
+  'ctrl-m': 'vim-mode-plus-user:insert-newline-at-point'
+
+'atom-text-editor.vim-mode-plus.normal-mode:not(.autocomplete-active)':
+  'enter': 'editor:newline-below'
+  'shift-enter': 'editor:newline-above'
+  'ctrl-j': 'vim-mode-plus-user:insert-newline-at-point'
+
+'atom-text-editor.vim-mode-plus.delete-with-backhole-register-pending':
+  'd': 'vim-mode-plus-user:delete-with-backhole-register'
+
+'atom-text-editor':
+  'ctrl-k': 'unset!'
+  'ctrl-m': 'unset!'
+  'alt-x': 'command-palette:toggle'
+  'ctrl-p': 'fuzzy-finder:toggle-file-finder'
+
+'body atom-text-editor.autocomplete-active':
+  'ctrl-k': 'autocomplete-plus:move-up'
+  'ctrl-j': 'autocomplete-plus:move-down'
+
+'atom-panel.modal .fuzzy-finder':
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
+
+'atom-panel.modal .command-palette':
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
+
+'atom-panel.modal .tabs-mru-switcher':
+  'ctrl-k': 'core:move-up'
+  'ctrl-j': 'core:move-down'
+
+'atom-workspace':
+  'ctrl-i':     'cursor-history:next'
+  'ctrl-o':     'cursor-history:prev'
+  'ctrl-cmd-i': 'cursor-history:next-within-editor'
+  'ctrl-cmd-o': 'cursor-history:prev-within-editor'
+  'cmd-o': 'advanced-open-file:toggle'
+
+'atom-pane .preview-pane .results-view':
+  'j': 'core:move-down'
+  'k': 'core:move-up'
+  'h': 'core:move-left'
+  'l': 'core:move-right'
+  'ctrl-m': 'core:confirm'
+
+'atom-text-editor.editor.mini':
+  'ctrl-w': 'editor:delete-to-beginning-of-word'
+  'ctrl-m': 'core:confirm'

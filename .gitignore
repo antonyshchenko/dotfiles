@@ -1,1 +1,6 @@
 .boot/cache
+/.atom/blob-store/
+/.atom/compile-cache/
+/.atom/packages/
+/.atom/storage/
+/.atom/.apm/
