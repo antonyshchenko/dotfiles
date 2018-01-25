@@ -554,6 +554,9 @@ map <leader><leader> :b#<CR>
 " Start substitute on current word under the cursor
 nnoremap <leader>ss :%s///gc<Left><Left><Left>
 
+" Format json
+command Json %!jq '.'
+
 " change vim cursor depending on the mode
 if has('nvim')
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
