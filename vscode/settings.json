@@ -1,0 +1,72 @@
+{
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j","j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before":["<leader>", "s", "c"],
+            "after":[],
+            "commands": [
+                {
+                    "command": ":nohl"
+                }
+            ]
+        },
+        {
+            "before": ["<C-j>"],
+            "after": ["i", "<CR>", "<Esc>"],
+        },
+        {
+            "before": ["shift+<CR>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.insertLineBefore"
+                }
+            ]
+        },
+        {
+            "before": ["<CR>"],
+            "after": [],
+            "commands": [
+                {
+                    "command": "editor.action.insertLineAfter"
+                }
+            ]
+        },
+        {
+            // map easy motion to space
+            "before": ["space"],
+            "after": ["<leader>", "<leader>", "s"],
+        },
+        {
+            // map replace with register to s
+            "before": ["s"],
+            "after": ["g", "r"],
+        }
+    ],
+    "vim.leader": ",",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false
+    },
+    "vim.replaceWithRegister": true,
+    "editor.lineNumbers": "relative",
+    "workbench.activityBar.visible": false,
+    "workbench.colorTheme": "Boxy Oceanic",
+    "workbench.colorCustomizations": {
+        "editor.background": "#1c1c1c"
+    },
+    "editor.minimap.enabled": false,
+    "vim.camelCaseMotion.enable": false,
+    "vim.changeWordIncludesWhitespace": true,
+    "editor.matchBrackets": false
+}

@@ -27,3 +27,17 @@ brew install neovim/neovim/neovim
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
+
+# vscode
+brew cask install visual-studio-code
+
+code --install-extension dragos.scala-lsp
+code --install-extension felixfbecker.php-intellisense
+code --install-extension markinmoura.boxy-oceanic
+code --install-extension mjmcloug.vscode-elixir
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension rafamel.subtle-brackets
+code --install-extension redhat.java
+code --install-extension vscodevim.vim
+
+ln -fs $SCRIPTPATH/vscode/settings.json ~/Library/Application\ Support/Code/User/
