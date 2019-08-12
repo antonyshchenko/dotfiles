@@ -1,6 +1,3 @@
-[submodule "dotemacs/env0der/extensions/evil-plugins"]
-	path = dotemacs/env0der/extensions/evil-plugins
-	url = git@github.com:tarao/evil-plugins.git
 [submodule ".zprezto"]
 	path = .zprezto
 	url = git@github.com:sorin-ionescu/prezto.git

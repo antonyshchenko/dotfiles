@@ -5,8 +5,6 @@
 SCRIPTPATH=`pwd`
 
 ln -sf $SCRIPTPATH/.config/nvim/init.vim ~/.config/nvim/init.vim
-ln -sf $SCRIPTPATH/dotemacs/env0der ~/.emacs.d/private/env0der
-ln -sf $SCRIPTPATH/dotemacs/.spacemacs ~/.spacemacs
 ln -sf $SCRIPTPATH/.zprezto ~/.zprezto
 
 setopt EXTENDED_GLOB
@@ -18,10 +16,6 @@ ln -sf $SCRIPTPATH/.zshrc ~/.zshrc
 ln -sf $SCRIPTPATH/.zpreztorc ~/.zpreztorc
 ln -sf $SCRIPTPATH/.ctags ~/.ctags
 ln -sf $SCRIPTPATH/.editrc ~/.editrc
-ln -sf $SCRIPTPATH/.pryrc ~/.pryrc
-ln -sf $SCRIPTPATH/.tmux.conf ~/.tmux.conf
-mkdir -p ~/.boot
-ln -sf $SCRIPTPATH/.boot/profile.boot ~/.boot/profile.boot
 ln -sf $SCRIPTPATH/.agignore ~/.agignore
 
 # neovim
@@ -33,5 +27,3 @@ brew install neovim/neovim/neovim
 curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 vim +PlugInstall +qall
-
-ln -sf $SCRIPTPATH/.atom ~/.atom
