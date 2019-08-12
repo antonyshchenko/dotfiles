@@ -41,3 +41,4 @@ code --install-extension redhat.java
 code --install-extension vscodevim.vim
 
 ln -fs $SCRIPTPATH/vscode/settings.json ~/Library/Application\ Support/Code/User/
+ln -fs $SCRIPTPATH/vscode/keybindings.json ~/Library/Application\ Support/Code/User/
